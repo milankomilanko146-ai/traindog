@@ -7,1001 +7,1099 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
---white:#fff;--off:#f8f7f5;--border:#e8e5e0;
---text:#111;--muted:#666;--light:#aaa;
---accent:#111827;--accent2:#1e293b;
---green:#16a34a;--green-bg:#f0fdf4;
---r:10px;--rl:14px;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#111827;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 
 /* PAGE SYSTEM */
-.page{display:none;animation:fadeIn .35s ease}
+.page{display:none;animation:fadeIn .4s ease}
 .page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ============================== */
-/*       ADVERTORIAL STYLES       */
-/* ============================== */
-.adv-header{background:#fff;border-bottom:1px solid #f0eeeb;padding:13px 20px;position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between}
-.adv-logo{font-family:'Merriweather',serif;font-size:19px;font-weight:700;color:#111;letter-spacing:-.3px}
-.adv-logo span{color:#999;font-weight:400;font-size:12px;font-family:'Inter',sans-serif;margin-left:6px}
-.adv-nav{display:flex;gap:14px}
-.adv-nav a{font-size:12.5px;color:#999;font-weight:500}
+/* CONTAINERS */
+.container{max-width:700px;margin:0 auto;padding:0 20px}
+.container-wide{max-width:1080px;margin:0 auto;padding:0 20px}
+.container-narrow{max-width:540px;margin:0 auto;padding:0 20px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:600;font-size:16px;border:none;border-radius:12px;cursor:pointer;transition:all .2s ease;text-align:center;width:100%}
+.btn-primary{background:#111827;color:#fff;padding:16px 32px;font-size:17px}
+.btn-primary:hover{background:#374151;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.btn-secondary{background:#f0fdf4;color:#15803d;border:2px solid #bbf7d0;padding:14px 28px}
+.btn-secondary:hover{background:#dcfce7}
+.btn-ghost{background:transparent;color:#6b7280;padding:12px;font-size:14px;font-weight:500}
+.btn-ghost:hover{color:#111827}
+.btn-success{background:#16a34a;color:#fff;padding:16px 32px;font-size:17px}
+.btn-success:hover{background:#15803d;transform:translateY(-1px)}
+.btn-lg{padding:18px 36px;font-size:18px;border-radius:14px}
+
+/* CARDS */
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;transition:box-shadow .2s}
+.card-elevated{box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04)}
+.card-highlight{border:2px solid #111827}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:100px;font-size:13px;font-weight:600}
+.badge-dark{background:#111827;color:#fff}
+.badge-light{background:#f3f4f6;color:#374151}
+.badge-green{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.badge-amber{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
+
+/* DIVIDERS */
+.divider{height:1px;background:#e5e7eb;margin:32px 0}
+
+/* ============================================ */
+/*          ADVERTORIAL STYLES                  */
+/* ============================================ */
+.adv-header{background:#fff;border-bottom:1px solid #f3f4f6;padding:14px 0;position:sticky;top:0;z-index:50}
+.adv-header-inner{display:flex;align-items:center;justify-content:space-between}
+.adv-logo{font-family:'Merriweather',serif;font-size:20px;font-weight:700;color:#111827;letter-spacing:-.5px}
+.adv-logo span{color:#6b7280;font-weight:400;font-size:13px;font-family:'Inter',sans-serif;margin-left:8px}
+.adv-nav{display:flex;gap:16px}
+.adv-nav a{font-size:13px;color:#6b7280;font-weight:500}
 .adv-nav a:hover{color:#111}
 
-.adv-article{max-width:680px;margin:0 auto;padding:36px 20px 50px}
-.adv-category{font-size:12px;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
-.adv-title{font-family((('Merriweather',serif;font-size:clamp(26px,4.5vw,38px);font-weight:700;line-height:1.28;color:#111;margin-bottom:14px}
-.adv-subtitle{font-size:17px;color:#555;line-height:1.65;margin-bottom:20px}
+.adv-article{padding:40px 0 60px}
+.adv-category{font-size:13px;font-weight:600;color:#4f46e5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.adv-title{font-family:'Merriweather',serif;font-size:32px;font-weight:700;line-height:1.3;color:#111827;margin-bottom:16px}
+.adv-subtitle{font-size:18px;color:#4b5563;line-height:1.6;margin-bottom:24px}
+.adv-meta{display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid #f3f4f6;border-bottom:1px solid #f3f4f6;margin-bottom:32px;flex-wrap:wrap}
+.adv-author-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#c7d2fe,#a5b4fc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#4338ca}
+.adv-author-info{font-size:14px}
+.adv-author-name{font-weight:600;color:#111827}
+.adv-author-date{color:#9ca3af;font-size:13px}
+.adv-readtime{margin-left:auto;font-size:13px;color:#9ca3af}
 
-.adv-meta{display:flex;align-items:center;gap:10px;padding:14px 0;border-top:1px solid #f3f1ee;border-bottom:1px solid #f3f1ee;margin-bottom:28px;flex-wrap:wrap}
-.adv-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c7d2fe,#a5b4fc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#4338ca;flex-shrink:0}
-.adv-author where{font-size:13px}
-.adv-author-name{font-weight:600;color:#111;font-size:13.5px}
-.adv-author-date{color:#aaa;font-size:12px}
-    .adv-readtime    {margin-left:auto;font-size:12px;color:#bbb}
+.adv-body p{font-size:17px;line-height:1.8;color:#374151;margin-bottom:24px;font-family:'Merriweather',serif;font-size:16px;line-height:1.85}
+.adv-body p strong{color:#111827}
+.adv-body h2{font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:#111827;margin:40px 0 16px}
+.adv-body blockquote{border-left:3px solid #111827;padding:16px 24px;margin:32px 0;background:#f9fafb;border-radius:0 12px 12px 0;font-style:italic;color:#374151}
+.adv-body .highlight-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px 24px;margin:32px 0}
+.adv-body .highlight-box strong{color:#15803d}
+.adv-body ul{margin:16px 0 24px 20px}
+.adv-body ul li{font-size:16px;line-height:1.8;color:#374151;margin-bottom:8px;font-family:'Merriweather',serif}
 
-.adv-body p{font-family:'Merriweather',serif;font-size:15.5px;line-height:1.85;color:#3a3a3a;margin-bottom:22px}
-.adv-body p strong{color:#111}
-.adv-body h2{font-family:'Inter',sans-serif;font-size:21px;font-weight:700;color:#111;margin:36px 0 14px}
-.adv-body blockquote{border-left:3px solid #111;padding:14px 20px;margin:28px 0;background:#f9f8f6;border-radius:0 10px 10px 0;font-style:italic;color:#444;font-family:'Merriweather',serif;font-size:15px;line-height:1.8}
-.adv-body ul{margin:14px 0 22px 18px}
-.adv-body ul li{font-family:'Merriweather',serif;font-size:15px;line-height:1.85;color:#3a3a3a;margin-bottom:6px}
+.adv-cta-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:16px;padding:32px;text-align:center;margin:40px 0}
+.adv-cta-section h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.adv-cta-section p{color:#6b7280;font-size:15px;margin-bottom:20px}
 
-/* Highlight box (mid-article) */
-.adv-highlight{background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:18px 20px;margin:28px 0}
-.adv-highlight strong{color:#15803d}
+.adv-disclaimer{font-size:12px;color:#9ca3af;text-align:center;padding:20px 0;border-top:1px solid #f3f4f6;margin-top:40px;line-height:1.6}
 
-/* ── MID-ARTICLE CTA ── */
-.adv-mid-cta{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:24px;margin:36px 0;display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .2s}
-.adv-mid-cta:hover{border-color:#cbd5e1;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.adv-mid-cta-icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#1e293b,#334155);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.adv-mid-cta-text{flex:1}
-.adv-mid-cta-text h4{font-size:14px;font-weight:700;margin-bottom:2px}
-.adv-mid-cta-text p{font-size:12.5px;color:#64748b;line-height:1.5}
-.adv-mid-cta-arrow{font-size:18px;color:#94a3b8;flex-shrink:0}
+.adv-image-placeholder{background:linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%);border-radius:12px;padding:60px 20px;text-align:center;margin:32px 0;font-size:14px;color:#9ca3af}
 
-/* ── BIG END CTA ── */
-.adv-big-cta{background:#0f172a;border-radius:20px;padding:40px 28px;margin:44px 0 20px;text-align:center;position:relative;overflow:hidden}
-.adv-big-cta::before{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none}
-.adv-big-cta::after{content:'';position:absolute;bottom:-40%;left:-20%;width:250px;height:250px;background:radial-gradient(circle,rgba(34,197,94,.08),transparent 70%);pointer-events:none}
-.adv-big-cta *{position:relative;z-index:1}
-.adv-big-cta .cta-badge{display:inline-block;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;border:1px solid rgba(255,255,255,.1)}
-.adv-big-cta .cta-stars{color:#fbbf24;font-size:15px;letter-spacing:PR2px;margin-bottom:4px}
-.adv-big-cta .cta-reviews{color:rgba(255,255,255,.6);font-size:12.5px;margin-bottom:20px}
-.adv-big-cta .cta-mockup{margin:0 auto 20px;width:120px;height:160px;background:linear-gradient(135deg,#1e293b,#334155,#475569);border-radius:6px 12px 12px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;border-left:3px solid rgba(255,255,255,.15);box-shadow:8px 6px 20px rgba(0,0,0,.4)}
-.adv-big-cta .cta-mockup .emoji{font-size:32px;margin-bottom:6px}
-.adv-big-cta .cta-mockup .m-title{font-size:11px;font-weight:800;line-height:1.3;text-align:center;padding:0 8px}
-.adv-big-cta h3{color:#fff;font-size:22px;font-weight:800;margin-bottom:6px;line-height:1.3}
-.adv-big-cta .cta-sub{color:rgba(255,255,255,.6);font-size:14px;margin-bottom:20px;line-height:1.6}
-.adv-big-cta .cta-price{margin-bottom:20px}
-.adv-big-cta .cta-price .old{color:rgba(255,255,255,.4);text-decoration:line-through;font-size:18px;margin-right:6px}
-.adv-big-cta .cta-price .now{color:#fff;font-size:36px;font-weight:900}
-.adv-big-cta .cta-price .save{display:inline-block;background:rgba(34,197,94,.2);color:#4ade80;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;margin-left:8px}
-.adv-big-cta .cta-btn{display:block;width:100%;max-width:360px;margin:0 auto 16px;padding:17px 24px;background:#16a34a;color:#fff;font-size:17px;font-weight:700;border:none;border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s;letter-spacing:.01em}
-.adv-big-cta .cta-btn:hover{background:#15803d
-;transform:translateY(-2px);box-shadow:0 8px 24px rgba(22,163,74,.35)}
-.adv-big-cta .cta-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:12px}
-.adv-big-cta .cta-trust span{display:flex;align-items:center;gap:4px}
-.adv-big-cta .cta-perks{list-style:none;display:inline-flex;flex-direction:column;gap:6px;text-align:left}
-.adv-big-cta .cta-perks li{font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:8px}
-.adv-big-cta .cta-perks li .ck{color:#4ade80;font-weight:700}
+/* ============================================ */
+/*          SALES PAGE STYLES (WHOP)            */
+/* ============================================ */
+.sp-header{background:#fff;border-bottom:1px solid #f3f4f6;padding:12px 0;position:sticky;top:0;z-index:50}
+.sp-header-inner{display:flex;align-items:center;justify-content:space-between}
+.sp-header-brand{display:flex;align-items:center;gap:10px}
+.sp-header-icon{width:36px;height:36px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sp-header-name{font-weight:700;font-size:15px}
+.sp-header-btn{background:#111827;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.sp-header-btn:hover{background:#374151}
 
-.adv-disclaimer{font-size:11.5px;color:#bbb;text-align:center;padding:18px 0;border-top:1px solid #f3f1ee;margin-top:16px;line-height:1.6}
+.sp-hero{padding:60px 0 40px}
+.sp-hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+.sp-hero-content{order:2}
+.sp-hero-visual{order:1}
 
-/* ============================== */
-/*       SALES PAGE STYLES        , */
-/* ============================== */
+.sp-rating{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.sp-stars{color:#f59e0b;font-size:16px;letter-spacing:2px}
+.sp-rating-text{font-size:14px;color:#6b7280}
 
-/* Announce */
-.announce{background:#0f172a;color:#fff;text-align:center;padding:9px 16px;font-size:12    .5px;font-weight:500}
-.announce strong{color:#fbbf24}
+.sp-hero h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.sp-hero-desc{font-size:17px;color:#4b5563;line-height:1.7;margin-bottom:24px}
 
-/* Nav */
-.sp-nav{border-bottom:1px solid var(--border);padding:12px 20px;position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:12px}
-.sp-brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:7px}
-.sp-brand-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.sp-nav-right{display:flex;align-items:center;gap:10px}
-.sp-live{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--	muted);background:var(--off);border:1px solid var(--border);padding:4px 10px;border-radius:20px}
-.ldot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:ldot 2s infinite;flex-shrink:0}
-@keyframes ldot{0%,100%{opacity:1}50%{opacity:.35}}
-.sp-nav-stars{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:3px}
-.sp-nav-stars .s{color:#f59e0b}
-.btn-nav{background:var(--accent);color:#fff;padding:9px 16px;border-radius:7px;font-size:13px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .18s;white-space:nowrap}
-.btn-nav:hover{background:var(--accent2)}
+.sp-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
+.sp-price{font-size:36px;font-weight:800;color:#111827}
+.sp-price-old{font-size:20px;color:#9ca3af;text-decoration:line-through}
+.sp-price-save{font-size:13px;font-weight:600;color:#15803d;background:#f0fdf4;padding:4px 10px;border-radius:6px}
 
-/* Hero */
-.sp-hero{max-width:1100px;margin:0 auto;padding:36px 20px 32px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-@media(max-width:800px){.sp-hero{grid-template-columns:1fr;gap:0;padding:24px 16px 0}}
+.sp-trust-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px}
+.sp-trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280}
+.sp-trust-item .check{color:#16a34a;font-weight:700}
 
-/* Product visual */
-.prod-img{width:100%;aspect-ratio:1;border-radius:var(--rl);background:linear-gradient(145deg,#eff6ff,#dbeafe,#bfdbfe);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #93c5fd}
-.prod-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 25% 75%,rgba(37    ,99,235,.06),transparent 55%)}
-.prod-badge-float{position:absolute;top:14px;left:14px;background:#0f172a;color:#fff;font-size:10.5px;font-weight:700;padding:5px 12px;border-radius:6px;z-index:2;letter-spacing:.3px}
-.prod-mock{text-align:center;position:relative;z-index:1;padding:20px}    
-.prod-icon{font-size:72px;display:block;margin-bottom:10px;filter:drop-shadow(0 12px 28
-px rgba(0,0,0,.12))}
-.prod-name her{font-weight:800;font-size:18px;color:#	0f172a;line-height:1.3}
-.prod-sub{font-size:12px;color:#64748b;margin-top:5px}
-.thumbs{display:flex;gap:8px;margin-top:10px}
-.thumb{width:56px;height:56px;border-radius:8px;border:2px solid var(--border);background:var(--off);display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:border-color .2s}
-.thumb:first-child,.thumb:hover{border-color:var(--accent)}
+/* Product mockup */
+.product-mockup{display:flex;justify-content:center;padding:20px}
+.book-visual{position:relative}
+.book-cover{width:220px;height:310px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#334155 100%);border-radius:8px 16px 16px 8px;color:#fff;padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:12px 8px 24px rgba(0,0,0,.25),inset -2px 0 4px rgba(255,255,255,.1);border-left:4px solid rgba(255,255,255,.15);position:relative;overflow:hidden}
+.book-cover::before{content:'';position:absolute;top:0;right:0;bottom:0;width:30%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.03))}
+.book-cover .book-emoji{font-size:40px;margin-bottom:12px}
+.book-cover .book-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.6);margin-bottom:12px;font-weight:600}
+.book-cover h3{font-size:18px;font-weight:800;line-height:1.3;margin-bottom:8px}
+.book-cover p{font-size:12px;color:rgba(255,255,255,.7);line-height:1.5}
+.book-shadow{position:absolute;bottom:-10px;left:10px;right:-10px;height:20px;background:radial-gradient(ellipse,rgba(0,0,0,.15),transparent);filter:blur(4px)}
+.bonus-badge-float{position:absolute;top:-8px;right:-12px;background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;transform:rotate(8deg)}
 
-/* Purchase panel ——— */
-.purchase{position:sticky;top:72px}
-@media(max-width:800px){.purchase{position:static;padding:20px 0 0}}
-
-.creator{display:flex;align-items:center;gap:9px;margin-bottom:14px}
-.creator-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff    ;flex-shrink:0}
-.creator-info{font-size:12.5px;color:var(--muted)}
-.creator-info strong{color:var(--text)}
-.verified{display:inline-flex;align-items:center;gap:2px;font-size:10px;color:#0
-
-ea5e9;background:#f0f9ff;padding:2px 7	px;border-radius:10px;margin-left:5px;font-weight:600}
-
-.prod-title{font-size:clamp(22px,3.5vw,29px);font-weight:800;line-height:1.22;margin-bottom:6px;letter-spacing:-.02em}
-.tagline{color:var(--muted);font-size:14.5px;line-height:1.65
-
-;margin-bottom:14px}
-
-.social-proof{display:flex;align-items:center;gap:10px;margin-bottom:12px;	flex-wrap:wrap}
-.avs{display:flex}
-.avs span{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-left:-7px;border:2px solid #fff}
-.avs span:first-child{margin-left:0}
-.proof-txt{font-size:12.5px;color:var(--muted)}
-.proof-txt strong{color:var(--text)}
-
-.rating-row{display:flex;align-items:center;gap:7px;margin-bottom:16px;font-size:13.5px}
-.stars{color:#f59e0b;letter-spacing:1.5px}
-.rcount{color:var(--muted)}
-
-/* Price box[:] */
-.price-box{background:var(--off);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
-.price-row{display:flex;align-items:baseline;gap:8px;flex    eyrap:wrap}
-.price-now{font-size:34px;font-weight:800;color:var(--text);line-height:1}
-.price-was{text-decoration:line-through;color:var(--light);font-size:16px}
-.price-save{display:inline-block;background:#dcfce7;color:#15803d;font-size:11.5px;font-weight:700+;padding:3px 9px;border-radius:12px}
-.price-perks{font-size:12px;color:var(--muted);margin-top:8px;display:flex;flex    -wrap:wrap;gap:10px}
-.price-perks span{display:flex;align-items:center;gap:3px}
-
-/* Countdown */
-.countdown{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--r);padding:11px 14px;margin-bottom:11px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#92    400    e;flex-wrap:wrap}
-.timer{background:#0f172a;color:#fbbf24;padding:2px 9px;border-radius:5px;font-size:13.5px;font-weight:800;font-variant-numeric:tabular-nums}
-
-/* Buy button */
-.btn-buy{display:block;width:100%;padding:16px;border:none;border    -radius:var(--r);font-size:16px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff;margin-bottom:10px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;transition:all .25s;letter-spacing:.02em}
-.btn-buy::marked{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:left .5s}
-.btn-buy:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 
-
-or    8px 22px rgba(0,0,0,.15)}
-.btn-buy:hover::after{left:100%}
-
-.trust-row{display:flex;align-items:center;justify-content:center;gap:14px;font-size:11.5px;color:var(--muted);margin-bottom:14px;flex-wrap:wrap}
-.trust-row span, .mtr span{display:flex;align-items:center;gap:3px}
-
-/* Includes */
-.includes{margin-top:12px}
-.includes h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:10px}
-.inc{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-top:1px solid var(--border);font-size:13.5px}
-.inc .ck{color:var(--green);font-size:14px;flex-shrink:0;margin-top:1px}
-.inc .lbl{color:var(--text);font-weight:600;margin-bottom:2px}
-.inc .desc{color:var(--muted);font-size:11.5px}
-
-/* Trust logos */
-.trust-logos{display:flex;align-items:center;justify-content:center;gap:24px;padding:20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
-.tlogo{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;color:var(--muted);font-weight:500}
-.tlogo .ico{font-size:22px}
-
-/* Stats */
-.stats{max-width:1100px;margin:0 auto;padding:22px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{text-align:center;padding:16px 10px;background:var(--off);border:1px solid var(--border);border-radius:var(--r)}
-.stat .num{font-size:22px;font-weight:800;color:var(--accent);display:block;line-height:1}
-.stat .lbl{font-size:11px;color:var(--muted);margin-top:4px}
+/* Stats bar */
+.sp-stats{padding:32px 0;border-top:1px solid #f3f4f6;border-bottom:1px solid #f3f4f6;margin:0 0 60px}
+.sp-stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.sp-stat{text-align:center}
+.sp-stat-number{font-size:24px;font-weight:800;color:#111827}
+.sp-stat-label{font-size:13px;color:#6b7280;margin-top:2px}
 
 /* Sections */
-.section{max-width:1100px;margin:0 auto;padding:34px 20px;border-top:1px solid var(--border)}
-.sec-h{font-size:19px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;letter-spacing:-.01em}
-.sec-h::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:4px;flex-shrink:0}
-.sec-body{color:var(--muted);font-size:14.5px;line-height:1.8;max-width:680px}
-.sec-body p{margin-bottom:14px}
+.sp-section{padding:60px 0}
+.sp-section-alt{background:#f9fafb}
+.sp-section-title{font-size:28px;font-weight:800;text-align:center;margin-bottom:8px;letter-spacing:-.3px}
+.sp-section-subtitle{font-size:16px;color:#6b7280;text-align:center;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
 
-/* Problem list */
-.problem-list{list-style:none;padding:0;margin:0 0 20px}
-.problem-list li{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;color:#475569;align-items:flex-start}
+/* Problem section */
+.problem-list{list-style:none;padding:0;margin:0 0 32px}
+.problem-list li{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f3f4f6;font-size:15px;color:#374151;align-items:flex-start}
 .problem-list li:last-child{border-bottom:none}
-.p-icon{flex-shrink:0;width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
-.p-icon-red{background:#fef2f2;color:#dc2626}
-.p-icon-green{background:#f0fdf4;color:#16a34a}
+.problem-icon{flex-shrink:0;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.problem-icon-red{background:#fef2f2;color:#dc2626}
+.problem-icon-green{background:#f0fdf4;color:#16a34a}
 
-/* Modules */
-.module-list{display:flex;flex-direction:column;gap:10px}
-.module-item{display:flex;gap:14px;align-items:flex-start;padding:16px;background:var(--off);border:1px solid var(--border);border-radius:var(--r);transition:all .2s}
-.module-item:hover{border-color:#cbd5e1}
-.module-num{width:36px;height:36px;border-radius:8px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#475569;flex-shrink:0}
-.module-content h4{font-size:14.5px;font-weight:700;margin-bottom:2px}
-.module-content p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.solution-header{text-align:center;margin:40px 0 24px}
+.solution-header h3{font-size:22px;font-weight:700}
+
+/* What's inside */
+.module-list{display:flex;flex-direction:column;gap:12px}
+.module-item{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;display:flex;gap:16px;align-items:flex-start;transition:all .2s}
+.module-item:hover{border-color:#d1d5db;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.module-number{width:40px;height:40px;border-radius:10px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#374151;flex-shrink:0}
+.module-content h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.module-content p{font-size:14px;color:#6b7280;line-height:1.6}
 .module-item.bonus{border-color:#fde68a;background:#fffbeb}
-.module-item.bonus .module-num{background:#fef3c7;color:#92400e}
+.module-item.bonus .module-number{background:#fef3c7;color:#92400e}
 
-/* Reviews */
-.rev-sum{display:flex;align-items:center;gap:20px;margin-bottom:18px;padding:16px;background:var(--off);border:1px solid var(--border);border-radius:var(--r);flex-wrap:wrap}
-.rev-big .num{font-size:42px;font-weight:800;line-height:1}
-.rev-big .sts{color:#f59e0b;font-size:14px;margin-top:3px}
-.rev-big .cnt{font-size:11px;color:var(--muted);margin-top:2px}
-.rev-bars{flex:1;min-width:160px}
-.bar-row{display:flex;align-items:center;gap:7px;margin-bottom:4px;font-size:11px;color:var(--muted)}
-.bar-row .bl{width:10px;text-align:right}
-.bar-track{flex:1;height:6px;background:#e5e7eb;border-radius:4px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;background:#f59e0b}
-.bar-row .pct{width:26px;text-align:right}
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
-.review{background:var(--off);border:1px solid var(--border);border-radius:var(--r);padding:16px}
-.rev-hdr{display:flex;align-items:center;gap:9px;margin-bottom:8px}
-.rev-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
-.rev-name{font-size:13px;font-weight:700}
-.rev-badge{font-size:10px;color:var(--green);margin-top:1px}
-.rev-stars{color:#f59e0b;font-size:12px;margin-bottom:6px;letter-spacing:1px}
-.rev-text{font-size:13px;line-height:1.7;color:#475569}
-.rev-date{font-size:10.5px;color:#94a3b8;margin-top:7px}
-.rev-helpful{margin-top:5px;font-size:10.5px;color:#94a3b8}
+/* Testimonials */
+.testimonial-grid{display:flex;flex-direction:column;gap:16px}
+.testimonial-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:24px}
+.testimonial-stars{color:#f59e0b;font-size:14px;margin-bottom:12px;letter-spacing:2px}
+.testimonial-text{font-size:15px;color:#374151;line-height:1.7;margin-bottom:16px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:10px}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff}
+.testimonial-name{font-size:14px;font-weight:600}
+.testimonial-detail{font-size:12px;color:#9ca3af}
 
-/* Behavior transformation cards */
-.ba-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.ba-card{background:var(--off);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-.ba-vis{height:110px;background:linear-gradient(135deg,#fef2f2,#f0fdf4);display:flex;align-items:center;justify-content:center;gap:14px;padding:14px}
-.ba-box{text-align:center;padding:10px 14px;border-radius:8px;font-weight:800;font-size:13px;line-height:1.3}
-.ba-box small{display:block;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
-.ba-box.bef{background:rgba(239,68,68,.1);color:#dc2626}
-.ba-box.aft{background:rgba(34,197,94,.1);color:#16a34a}
-.ba-arrow{font-size:18px;color:#94a3b8}
-.ba-info{padding:12px 14px}
-.ba-name{font-weight:700;font-size:12.5px;margin-bottom:3px}
-.ba-detail{font-size:12px;color:var(--muted);line-height:1.5}
-
-/* Featured */
-.featured{text-align:center;padding:22px 20px;border-top:1px solid var(--border)}
-.featured p{font-size:10.5px;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:12px}
-.feat-logos{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;opacity:.35;font-size:14px;font-weight:800;color:#64748b;letter-spacing:.03em}
-
-/* Guarantee */
-.guarantee{background:var(--green-bg);border:1px solid #bbf7d0;border-radius:var(--rl);padding:28px 22px;text-align:center;max-width:580px;margin:0 auto}
-.guar-icon{font-size:44px;margin-bottom:10px}
-.guarantee h3{font-size:19px;font-weight:800;color:#0f172a;margin-bottom:8px}
-.guarantee p{color:#475569;font-size:14px;line-height:1.7}
-.guar-tag{display:inline-block;background:#15803d;color:#fff;font-weight:700;padding:3px 10px;border-radius:5px;margin-top:10px;font-size:12px}
+/* Pricing card */
+.pricing-section{padding:60px 0}
+.pricing-card{max-width:480px;margin:0 auto;border:2px solid #111827;border-radius:20px;overflow:hidden}
+.pricing-card-header{background:#111827;color:#fff;padding:24px;text-align:center}
+.pricing-card-header h3{font-size:22px;font-weight:800}
+.pricing-card-header p{color:rgba(255,255,255,.7);font-size:14px;margin-top:4px}
+.pricing-card-body{padding:28px 24px}
+.pricing-card-price{text-align:center;margin-bottom:24px}
+.pricing-card-price .price-main{font-size:48px;font-weight:900}
+.pricing-card-price .price-old{font-size:22px;color:#9ca3af;text-decoration:line-through;margin-right:8px}
+.pricing-card-price .price-note{display:block;font-size:13px;color:#6b7280;margin-top:4px}
+.pricing-features{list-style:none;padding:0;margin:0 0 24px}
+.pricing-features li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;color:#374151}
+.pricing-features .pf-check{color:#16a34a;font-size:18px;font-weight:700;flex-shrink:0}
+.pricing-card-footer{padding:0 24px 24px}
+.pricing-card-footer .btn{font-size:18px}
+.pricing-guarantee{text-align:center;margin-top:16px;font-size:13px;color:#6b7280}
+.pricing-guarantee span{font-weight:600;color:#374151}
 
 /* FAQ */
-.faq-item{border:1px solid var(--border);border-radius:var(--r);margin-bottom:6px;overflow:hidden}
-.faq-q{padding:13px 16px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:var(--off);transition:background .2s;color:var(--text);user-select:none}
-.faq-q:hover{background:#f1f5f9}
-.faq-q .arr{transition:transform .3s;font-size:11px;color:var(--muted);flex-shrink:0}
-.faq-q.open .arr{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13.5px;line-height:1.7;color:var(--muted);padding:0 16px;background:var(--off)}
-.faq-a.open{max-height:300px;padding:0 16px 14px}
+.faq-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.faq-item{border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:all .2s}
+.faq-item:hover{border-color:#d1d5db}
+.faq-question{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:15px;gap:12px;user-select:none}
+.faq-toggle{font-size:20px;color:#9ca3af;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-answer-inner{padding:0 20px 18px;font-size:14px;color:#6b7280;line-height:1.7}
+.faq-item.open .faq-answer{max-height:300px}
+
+/* Guarantee */
+.guarantee-box{max-width:560px;margin:0 auto;text-align:center;padding:40px 24px;border:2px dashed #d1d5db;border-radius:20px}
+.guarantee-icon{font-size:48px;margin-bottom:16px}
+.guarantee-box h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.guarantee-box p{font-size:15px;color:#6b7280;line-height:1.7}
 
 /* Final CTA */
-.final-cta{text-align:center;padding:44px 20px;background:linear-gradient(180deg,#fff,#eff6ff)}
-.final-cta h2{font-size:23px;font-weight:800;margin-bottom:7px;letter-spacing:-.01em}
-.final-cta p{color:var(--muted);margin-bottom:20px;font-size:14.5px}
+.final-cta{text-align:center;padding:60px 0}
+.final-cta h2{font-size:30px;font-weight:800;margin-bottom:8px}
+.final-cta p{font-size:16px;color:#6b7280;margin-bottom:24px}
+.final-cta .social-proof{font-size:13px;color:#9ca3af;margin-top:16px}
+
+/* Sticky mobile CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:12px 16px;display:none;align-items:center;justify-content:space-between;z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,.08);gap:12px}
+.sticky-cta-price{font-size:14px}
+.sticky-cta-price .price{font-weight:800;font-size:20px}
+.sticky-cta-price .old{text-decoration:line-through;color:#9ca3af;font-size:14px;margin-right:4px}
+.sticky-cta .btn{width:auto;flex:1;padding:14px 24px}
+
+/* ============================================ */
+/*          CHECKOUT STYLES                     */
+/* ============================================ */
+.checkout-page{padding:40px 0 100px;min-height:100vh}
+.checkout-header{text-align:center;margin-bottom:32px}
+.checkout-header h1{font-size:24px;font-weight:800;margin-bottom:4px}
+.checkout-header p{color:#6b7280;font-size:14px}
+
+.checkout-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:960px;margin:0 auto}
+
+.checkout-form-section{order:2}
+.checkout-summary-section{order:1}
+
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:#374151}
+.form-input{width:100%;padding:14px 16px;border:1.5px solid #d1d5db;border-radius:10px;font-size:16px;font-family:inherit;transition:border-color .2s;background:#fff;color:#111;appearance:none;-webkit-appearance:none}
+.form-input:focus{outline:none;border-color:#111827;box-shadow:0 0 0 3px rgba(17,24,39,.08)}
+.form-input::placeholder{color:#9ca3af}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.checkout-section-label{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.checkout-section-label .step-num{width:24px;height:24px;border-radius:50%;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+
+.order-summary-card{border:1px solid #e5e7eb;border-radius:16px;padding:24px;background:#fff}
+.order-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f3f4f6}
+.order-item:last-child{border-bottom:none}
+.order-item-name{font-size:15px;font-weight:500}
+.order-item-price{font-size:15px;font-weight:700}
+.order-total{display:flex;justify-content:space-between;padding:16px 0 0;border-top:2px solid #111827;margin-top:8px}
+.order-total span{font-size:18px;font-weight:800}
+
+/* Order bump */
+.order-bump{border:2px dashed #fbbf24;background:#fffbeb;border-radius:14px;padding:20px;margin:20px 0;cursor:pointer;transition:all .2s}
+.order-bump:hover{border-color:#f59e0b}
+.order-bump.selected{border-style:solid;border-color:#f59e0b;background:#fef9c3}
+.order-bump-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.order-bump-checkbox{width:20px;height:20px;border:2px solid #d97706;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;transition:all .2s}
+.order-bump.selected .order-bump-checkbox{background:#d97706;border-color:#d97706}
+.order-bump-checkbox::after{content:'✓';color:#fff;font-size:13px;font-weight:700;opacity:0;transition:opacity .2s}
+.order-bump.selected .order-bump-checkbox::after{opacity:1}
+.order-bump-label{font-size:14px;font-weight:700;color:#92400e}
+.order-bump-price{margin-left:auto;font-size:14px;font-weight:800;color:#92400e}
+.order-bump-price .old-price{text-decoration:line-through;color:#b45309;font-weight:400;margin-right:4px;font-size:13px}
+.order-bump-desc{font-size:13px;color:#92400e;line-height:1.6;opacity:.85}
+
+.checkout-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:24px}
+.checkout-trust-item{font-size:12px;color:#6b7280;display:flex;align-items:center;gap:4px}
+
+.checkout-submit{margin-top:20px}
+.checkout-submit .btn{padding:18px;font-size:18px}
+
+/* ============================================ */
+/*          UPSELL STYLES                       */
+/* ============================================ */
+.upsell-page{min-height:100vh;padding:40px 0 80px}
+.upsell-confirmed{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:14px;padding:20px;text-align:center;margin-bottom:32px}
+.upsell-confirmed .check-icon{font-size:32px;margin-bottom:8px}
+.upsell-confirmed h3{font-size:18px;font-weight:700;color:#15803d;margin-bottom:4px}
+.upsell-confirmed p{font-size:14px;color:#166534}
+
+.upsell-offer{text-align:center}
+.upsell-offer h2{font-size:26px;font-weight:800;margin-bottom:8px}
+.upsell-offer .upsell-sub{font-size:16px;color:#6b7280;margin-bottom:32px}
+.upsell-product-card{border:2px solid #111827;border-radius:20px;overflow:hidden;max-width:480px;margin:0 auto 24px}
+.upsell-product-header{background:#111827;color:#fff;padding:20px;text-align:center}
+.upsell-product-header .badge{background:rgba(255,255,255,.15);color:#fff;margin-bottom:8px}
+.upsell-product-header h3{font-size:22px;font-weight:800}
+.upsell-product-body{padding:24px}
+.upsell-features{list-style:none;padding:0;margin:0 0 20px;text-align:left}
+.upsell-features li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;color:#374151}
+.upsell-features .uf-check{color:#16a34a;font-weight:700;font-size:16px}
+.upsell-price-box{text-align:center;padding:16px;background:#f9fafb;border-radius:12px;margin-bottom:20px}
+.upsell-price-box .old{font-size:18px;text-decoration:line-through;color:#9ca3af}
+.upsell-price-box .new{font-size:36px;font-weight:900;color:#111;margin:0 8px}
+.upsell-price-box .save-tag{font-size:13px;color:#16a34a;font-weight:600}
+.upsell-skip{text-align:center;margin-top:16px}
+.upsell-skip a{color:#9ca3af;font-size:14px;cursor:pointer;transition:color .2s}
+.upsell-skip a:hover{color:#6b7280}
+
+/* ============================================ */
+/*          THANK YOU STYLES                    */
+/* ============================================ */
+.thankyou-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.thankyou-content{text-align:center;max-width:500px}
+.thankyou-icon{font-size:64px;margin-bottom:24px}
+.thankyou-content h1{font-size:28px;font-weight:800;margin-bottom:8px}
+.thankyou-content .subtitle{font-size:16px;color:#6b7280;margin-bottom:32px}
+
+.download-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;text-align:left}
+.download-item{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#f9fafb}
+.download-icon{font-size:24px}
+.download-info{flex:1}
+.download-info h4{font-size:15px;font-weight:600}
+.download-info p{font-size:12px;color:#9ca3af}
+.download-btn{background:#111827;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+
+.next-steps{text-align:left;background:#f9fafb;border-radius:14px;padding:24px;margin-bottom:24px}
+.next-steps h3{font-size:16px;font-weight:700;margin-bottom:12px}
+.next-steps ol{padding-left:20px}
+.next-steps ol li{font-size:14px;color:#374151;padding:6px 0;line-height:1.6}
+
+/* ============================================ */
+/*          RESPONSIVE                          */
+/* ============================================ */
+@media(min-width:768px){
+  .sp-hero-grid{grid-template-columns:1fr 1fr}
+  .sp-hero-content{order:1}
+  .sp-hero-visual{order:2}
+  .sp-stats-grid{grid-template-columns:repeat(4,1fr)}
+  .testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .checkout-grid{grid-template-columns:1.2fr .8fr}
+  .checkout-form-section{order:1}
+  .checkout-summary-section{order:2}
+  .adv-title{font-size:40px}
+  .sp-hero h1{font-size:44px}
+  .book-cover{width:260px;height:360px}
+  .book-cover h3{font-size:22px}
+}
+
+@media(max-width:767px){
+  .sticky-cta.visible{display:flex}
+  .adv-nav{display:none}
+  .sp-hero h1{font-size:28px}
+  .sp-section-title{font-size:24px}
+  .pricing-card-price .price-main{font-size:40px}
+  .form-row{grid-template-columns:1fr}
+  .final-cta h2{font-size:24px}
+}
+
+/* Smooth scroll padding */
+html{scroll-behavior:smooth}
 
 /* Footer */
-.footer{text-align:center;padding:18px 20px;border-top:1px solid var(--border);font-size:11.5px;color:#94a3b8;background:var(--off)}
-.footer a{color:#94a3b8;text-decoration:underline}
-
-/* Toast */
-.toast{position:fixed;bottom:20px;left:16px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;display:flex;align-items:center;gap:9px;z-index:90;transform:translateY(130px);transition:transform .45s cubic-bezier(.4,0,.2,1);font-size:13px;max-width:300px;box-shadow:0 6px 24px rgba(0,0,0,.09);color:var(--text)}
-.toast.show{transform:translateY(0)}
-.tdot{width:7px;height:7px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:ldot 2s infinite}
-
-/* ============================== */
-/*       THANK YOU STYLES         */
-/* ============================== */
-.ty-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
-.ty-content{text-align:center;max-width:500px;width:100%}
-.ty-icon{font-size:64px;margin-bottom:20px}
-.ty-content h1{font-size:26px;font-weight:800;margin-bottom:6px}
-.ty-sub{font-size:15px;color:var(--muted);margin-bottom:28px}
-
-.dl-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;text-align:left}
-.dl-item{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--off)}
-.dl-icon{font-size:24px}
-.dl-info{flex:1}
-.dl-info h4{font-size:14px;font-weight:600}
-.dl-info p{font-size:11.5px;color:#94a3b8}
-.dl-btn{background:var(--accent);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
-
-.next-steps{text-align:left;background:var(--off);border-radius:var(--rl);padding:22px;margin-bottom:20px;border:1px solid var(--border)}
-.next-steps h3{font-size:15px;font-weight:700;margin-bottom:10px}
-.next-steps ol{padding-left:18px}
-.next-steps ol li{font-size:13.5px;color:#475569;padding:5px 0;line-height:1.6}
-
-/* ============================== */
-/*       MODAL / CHECKOUT         */
-/* ============================== */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(5px);z-index:200;display:none;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s}
-.modal-overlay.show{display:flex;opacity:1}
-.modal{background:#fff;border-radius:var(--rl);max-width:460px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:mIn .35s ease}
-@keyframes mIn{from{transform:translateY(18px) scale(.97);opacity:0}to{transform:none;opacity:1}}
-.modal-close{position:absolute;top:11px;right:11px;width:28px;height:28px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:#64748b;z-index:5;transition:all .18s}
-.modal-close:hover{background:#f1f5f9;color:#111}
-.mhead{padding:20px 20px 0;text-align:center}
-.msecure{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--green);background:var(--green-bg);padding:3px 10px;border-radius:20px;margin-bottom:9px;font-weight:600}
-.mhead h2{font-size:19px;font-weight:800}
-.mhead p{font-size:12px;color:#64748b;margin-top:3px}
-.mbody{padding:16px 20px}
-.osum{background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--r);padding:13px;margin-bottom:14px}
-.orow{display:flex;align-items:center;justify-content:space-between;font-size:13.5px}
-.orow .name{font-weight:600}
-.orow .price{font-weight:700}
-.odiv{border:none;border-top:1px solid #e2e8f0;margin:9px 0}
-.ototl{display:flex;justify-content:space-between;font-size:15px;font-weight:800}
-.fg{margin-bottom:12px}
-.fl{display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;color:#334155}
-.fi{width:100%;padding:11px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:15px;font-family:inherit;transition:all .2s;background:#fff;color:#111;outline:none}
-.fi:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(17,24,39,.08)}
-.fi::placeholder{color:#94a3b8}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.cbtn{width:100%;padding:15px;background:var(--accent);color:#fff;font-size:15px;font-weight:700;border:none;border-radius:var(--r);cursor:pointer;transition:all .25s;margin-top:6px;font-family:'Inter',sans-serif}
-.cbtn:hover{background:var(--accent2);box-shadow:0 8px 22px rgba(0,0,0,.15);transform:translateY(-1px)}
-.cbtn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
-.mrefund{text-align:center;margin-top:10px;font-size:11.5px;color:#64748b}
-.mtr{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:10px;font-size:11px;color:#94a3b8}
-.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* Upsell in modal */
-.up-wrap{text-align:center}
-.up-badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:10.5px;font-weight:700;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.7px;margin-bottom:12px}
-.up-wrap h2{font-size:19px;font-weight:800;margin-bottom:5px}
-.up-sub{color:#64748b;font-size:13px;margin-bottom:18px;line-height:1.6}
-.up-product{background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--r);padding:16px;margin-bottom:14px;text-align:left}
-.up-top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
-.up-icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.up-info h3{font-size:14px;font-weight:700}
-.up-pricing{font-size:12.5px;color:#64748b;margin-top:2px}
-.up-pricing strong{color:#111;font-size:17px}
-.up-pricing s{color:#94a3b8}
-.up-features{list-style:none}
-.up-features li{font-size:13px;padding:5px 0;display:flex;align-items:center;gap:7px;color:#334155}
-.up-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
-.btn-up-yes{width:100%;padding:14px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;font-size:14.5px;font-weight:700;border:none;border-radius:var(--r);cursor:pointer;transition:all .25s;margin-bottom:8px;font-family:'Inter',sans-serif}
-.btn-up-yes:hover{box-shadow:0 8px 20px rgba(37,99,235,.3);transform:translateY(-1px)}
-.btn-up-no{background:none;border:none;color:#94a3b8;font-size:12.5px;cursor:pointer;text-decoration:underline;padding:6px;font-family:'Inter',sans-serif;width:100%;display:block;text-align:center}
-.btn-up-no:hover{color:#64748b}
-
-/* ============================== */
-/*          RESPONSIVE            */
-/* ============================== */
-@media(max-width:800px){
-  .sp-hero{grid-template-columns:1fr;gap:0;padding:24px 16px 0}
-  .purchase{position:static;padding:20px 0 0}
-}
-@media(max-width:600px){
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .adv-nav{display:none}
-}
-@media(max-width:480px){
-  .section{padding:26px 16px}
-  .rev-grid,.ba-grid{grid-template-columns:1fr}
-  .frow{grid-template-columns:1fr}
-  .trust-row{gap:8px}
-  .modal{border-radius:var(--r) var(--r) 0 0;max-height:94vh;align-self:flex-end}
-  .sp-live{display:none}
-  .trust-logos{gap:14px;padding:14px}
-  .feat-logos{gap:14px;font-size:13px}
-  .rev-sum{flex-direction:column;gap:14px}
-}
+.sp-footer{text-align:center;padding:32px 20px;border-top:1px solid #f3f4f6;font-size:12px;color:#9ca3af}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════ -->
-<!--         PAGE 1: ADVERTORIAL            -->
-<!-- ═══════════════════════════════════════ -->
+<!-- ======================================================= -->
+<!--              PAGE 1: ADVERTORIAL                         -->
+<!-- ======================================================= -->
 <div id="page-advertorial" class="page active">
 
-<header class="adv-header">
-  <div class="adv-logo">PawLife <span>Magazine</span></div>
-  <nav class="adv-nav">
-    <a href="#">Training</a>
-    <a href="#">Health</a>
-    <a href="#">Nutrition</a>
-  </nav>
-</header>
-
-<article class="adv-article">
-
-  <div class="adv-category">Dog Behavior</div>
-  <h1 class="adv-title">I Spent $2,000 on Dog Trainers Before Discovering What Actually Works</h1>
-  <p class="adv-subtitle">After months of frustration, expensive private sessions, and two chewed-up couches — one conversation at the dog park changed everything.</p>
-
-  <div class="adv-meta">
-    <div class="adv-avatar">SM</div>
-    <div>
-      <div class="adv-author-name">Sarah Mitchell</div>
-      <div class="adv-author-date">Updated January 2025</div>
-    </div>
-    <div class="adv-readtime">6 min read</div>
-  </div>
-
-  <div class="adv-body">
-
-    <p>When my golden retriever puppy Jake destroyed our third couch cushion in a single week, I sat on the living room floor and cried.</p>
-
-    <p>It wasn't just the couch. It was the 3 AM barking that woke the entire house. The leash pulling so hard it nearly dislocated my shoulder. The <em>accidents</em> on every rug we owned. The deep embarrassment of owning a dog that jumped on every single person who walked through our front door.</p>
-
-    <p>I loved Jake more than anything. But I was completely, utterly <strong>drowning.</strong></p>
-
-    <h2>The $2,000 Mistake</h2>
-
-    <p>Like most desperate dog owners, I did what everyone tells you: <strong>hire a professional trainer.</strong></p>
-
-    <p>The first trainer charged $150 per session. After six sessions and $900, Jake could sit on command — but only when she was in the room. The moment she left, chaos came flooding back.</p>
-
-    <p>The second trainer used more correction. Jake started listening — but something changed behind his eyes. He looked afraid. That wasn't the relationship I wanted.</p>
-
-    <p><strong>Total spent: just over $2,000. Total lasting improvement: almost nothing.</strong></p>
-
-    <h2>The Dog Park Conversation</h2>
-
-    <p>Then, during a random conversation at the dog park, everything changed. Another dog mom — Lisa — had a border collie sitting calmly at her feet while mine was trying to eat a park bench.</p>
-
-    <p>She told me something I'll never forget:</p>
-
-    <blockquote>"The problem was never my dog. The problem was that I was speaking a language he couldn't understand. Once I learned to communicate on his terms, everything clicked within days."</blockquote>
-
-    <p>I was skeptical. But Lisa's dog was living proof that something was different.</p>
-
-    <h2>The Science Behind It</h2>
-
-    <p>Lisa pointed me toward research from veterinary behaviorists. Studies show that <strong>87% of what we call "behavioral problems" in puppies aren't problems at all.</strong> They're completely normal canine responses to confusing human signals.</p>
-
-    <p>Your puppy doesn't connect the word "No!" to the action. They register your stressed tone and tense body language — but have absolutely no idea why you're upset. This creates anxiety. Anxious puppies chew <em>more</em>, bark <em>more</em>, have more accidents.</p>
-
-    <div class="adv-highlight">
-      <strong>Key insight:</strong> It's a vicious cycle most owners — and even professional trainers — completely miss. The more you correct, the more anxious your dog gets, the worse their behavior becomes.
-    </div>
-
-    <!-- MID-ARTICLE CTA -->
-    <div class="adv-mid-cta" onclick="showPage('page-sales')">
-      <div class="adv-mid-cta-icon">🐕</div>
-      <div class="adv-mid-cta-text">
-        <h4>The Complete Puppy Blueprint</h4>
-        <p>The step-by-step system that fixed everything. See what's inside →</p>
+  <!-- Editorial header -->
+  <header class="adv-header">
+    <div class="container">
+      <div class="adv-header-inner">
+        <div class="adv-logo">PawLife <span>Magazine</span></div>
+        <nav class="adv-nav">
+          <a href="#">Training</a>
+          <a href="#">Health</a>
+          <a href="#">Nutrition</a>
+        </nav>
       </div>
-      <div class="adv-mid-cta-arrow">→</div>
     </div>
+  </header>
 
-    <h2>The Method That Actually Works</h2>
+  <article class="adv-article">
+    <div class="container">
 
-    <p>The approach is built on one principle: <strong>communicate in your dog's language</strong> instead of expecting them to learn yours. Behaviorists call it "structured communication," and it works in three phases:</p>
+      <div class="adv-category">Dog Behavior</div>
+      <h1 class="adv-title">I Spent $2,000 on Dog Trainers Before Discovering What Actually Works</h1>
+      <p class="adv-subtitle">After months of frustration, expensive private sessions, and two chewed-up couches, one accidental conversation at the dog park changed everything.</p>
 
-    <ul>
-      <li><strong>Phase 1 — Foundation Signals (Days 1-5):</strong> Five core "bridge" signals that create a shared language. This alone eliminates roughly 60% of problem behaviors within the first week.</li>
-      <li><strong>Phase 2 — Environment Design (Days 1-7):</strong> Strategic changes to your home that prevent unwanted behaviors before they start.</li>
-      <li><strong>Phase 3 — Pattern Building (Days 5-30):</strong> Short daily exercises — just 5-10 minutes — that build the behaviors you actually want.</li>
-    </ul>
+      <div class="adv-meta">
+        <div class="adv-author-avatar">SM</div>
+        <div class="adv-author-info">
+          <div class="adv-author-name">Sarah Mitchell</div>
+          <div class="adv-author-date">Updated January 2025</div>
+        </div>
+        <div class="adv-readtime">6 min read</div>
+      </div>
 
-    <h2>What Happened With Jake</h2>
+      <div class="adv-body">
+        <p>When my golden retriever puppy Jake destroyed our third couch cushion in a single week, I sat on the living room floor and cried.</p>
 
-    <p>By <strong>day three</strong>, the chewing stopped. Not reduced — stopped.</p>
+        <p>It wasn't just the couch. It was the 3 AM barking that woke the entire house. The leash pulling so hard it nearly dislocated my shoulder. The <em>accidents</em> on every rug we owned. The deep embarrassment of owning a dog that jumped on every single person who walked through our front door.</p>
 
-    <p>By <strong>day ten</strong>, I could walk Jake on a loose leash for the first time in his life.</p>
+        <p>I loved Jake more than anything. But I was completely, utterly <strong>drowning</strong>.</p>
 
-    <p>By <strong>week three</strong>, I had the dog I'd always dreamed about. Calm. Happy. Responsive. Connected. I cried again — but this time, tears of pure relief.</p>
+        <div class="adv-image-placeholder">🐕 [ Image: Golden retriever puppy on a couch ]</div>
 
-    <p>A certified canine behaviorist compiled the entire system into a step-by-step guide called <strong>The Complete Puppy Blueprint</strong>. It covers everything — the communication foundation, environment setup, daily exercises, plus troubleshooting for specific issues like separation anxiety, leash reactivity, and recall.</p>
+        <h2>The $2,000 Mistake</h2>
 
-    <p>Designed so any owner can follow it at home, with any breed, at any age. I genuinely wish I'd found it before spending $2,000 on trainers.</p>
+        <p>Like most desperate dog owners, I did what everyone tells you to do: <strong>hire a professional trainer.</strong></p>
 
-  </div>
+        <p>The first trainer charged $150 per session. After six sessions and $900 later, Jake could sit on command — but only when she was in the room. The moment she walked out the door, the chaos came flooding back. It was as if the training had never happened.</p>
 
-  <!-- ── BIG END CTA ── -->
-  <div class="adv-big-cta">
-    <div class="cta-badge">★ Recommended</div>
-    <div class="cta-stars">★★★★★</div>
-    <div class="cta-reviews">4.9/5 from 2,847 dog owners</div>
-    <div class="cta-mockup">
-      <span class="emoji">🐕</span>
-      <div class="m-title">THE COMPLETE PUPPY BLUEPRINT</div>
+        <p>The second trainer used a different approach. More correction-based. Firmer. Jake started listening, yes — but something changed behind his eyes. He looked afraid. That wasn't the relationship I wanted with my dog.</p>
+
+        <p><strong>Total spent on professional training: just over $2,000. Total improvement: almost nothing.</strong></p>
+
+        <h2>The Dog Park Conversation That Changed Everything</h2>
+
+        <p>Then, during a random conversation at the dog park, everything changed.</p>
+
+        <p>Another dog mom — a woman named Lisa whose border collie sat calmly at her feet while mine was trying to eat a park bench — told me something I'll never forget:</p>
+
+        <blockquote>"The problem was never my dog. The problem was that I was speaking a language he couldn't understand. Once I learned to communicate on his terms, everything clicked. Literally within days."</blockquote>
+
+        <p>I was skeptical. I'd heard plenty of "miracle solutions" before. But Lisa's dog was living, breathing proof that something was different here.</p>
+
+        <h2>The Science Behind It</h2>
+
+        <p>Lisa pointed me toward research from veterinary behaviorists. What I found was fascinating.</p>
+
+        <p>Studies show that <strong>87% of what we call "behavioral problems" in puppies aren't actually problems at all</strong>. They're completely normal canine responses to confusing human signals.</p>
+
+        <p>Think about it from your puppy's perspective: you say "No!" when they chew a shoe. But your puppy doesn't connect the word to the action. Instead, they register two things — your stressed tone and your tense body language. The result? Your puppy learns that sometimes you get upset, but they have <em>absolutely no idea why</em>.</p>
+
+        <p>This creates anxiety. And anxious puppies? They chew <em>more</em>. They bark <em>more</em>. They have more accidents. Everything gets worse.</p>
+
+        <div class="highlight-box">
+          <strong>Key insight:</strong> It's a vicious cycle that most owners — and even many professional trainers — completely miss. The more you correct, the more anxious your dog gets, the worse their behavior becomes.
+        </div>
+
+        <h2>The Three-Phase Approach That Actually Works</h2>
+
+        <p>The method that works is built on a simple principle: <strong>communicate in your dog's language</strong> instead of expecting them to learn yours. Behaviorists call it "structured communication," and it works in three phases:</p>
+
+        <ul>
+          <li><strong>Phase 1 — Foundation Signals (Days 1-5):</strong> Five core "bridge" signals that create a shared communication system. This alone eliminates roughly 60% of problem behaviors within the first week.</li>
+          <li><strong>Phase 2 — Environment Design (Days 1-7):</strong> Small, strategic changes to your home that prevent unwanted behaviors before they start. No willpower required from you or your dog.</li>
+          <li><strong>Phase 3 — Positive Pattern Building (Days 5-30):</strong> Short daily exercises — just 5 to 10 minutes — that build the behaviors you actually want, instead of constantly correcting the ones you don't.</li>
+        </ul>
+
+        <p>The key difference? This approach works <strong>with</strong> your puppy's natural instincts, not against them. Instead of a stressed, confused dog, you end up with a confident, calm companion who <em>wants</em> to please you — because they finally understand how.</p>
+
+        <h2>What Happened With Jake</h2>
+
+        <p>I was still skeptical when I started. After all, $2,000 of professional training had barely made a dent. How could something this straightforward actually work?</p>
+
+        <p>But by <strong>day three</strong>, the chewing stopped. Not reduced — stopped.</p>
+
+        <p>By <strong>day ten</strong>, I could walk Jake on a loose leash for the first time in his life. He walked beside me like he'd been doing it for years.</p>
+
+        <p>By <strong>week three</strong>, I had the dog I'd always dreamed about. Calm. Happy. Responsive. Connected.</p>
+
+        <p>I cried again. But this time, they were tears of pure relief.</p>
+
+        <h2>Where to Find It</h2>
+
+        <p>After my experience, I started telling every struggling dog owner I knew. The same question kept coming up: <em>"Where can I find this method?"</em></p>
+
+        <p>A certified canine behaviorist compiled the entire system into a comprehensive, step-by-step guide called <strong>The Complete Puppy Blueprint</strong>. It covers everything — the communication foundation, the environment setup, the daily exercises, plus troubleshooting for specific issues like separation anxiety, leash reactivity, and recall problems.</p>
+
+        <p>It's designed so any dog owner can follow it at home, with any breed, at any age. No prior training experience needed.</p>
+
+        <p>I genuinely wish I'd found it before spending $2,000 on trainers. It would have saved me months of frustration, several pieces of furniture, and a lot of tears.</p>
+
+        <!-- CTA Section -->
+        <div class="adv-cta-section">
+          <h3>The Complete Puppy Blueprint</h3>
+          <p>The step-by-step system used by 2,800+ dog owners to transform their puppy's behavior in 30 days.</p>
+          <button class="btn btn-primary btn-lg" onclick="showPage('page-sales')">Learn More About the Blueprint →</button>
+        </div>
+
+      </div>
+
+      <div class="adv-disclaimer">
+        This article reflects the author's personal experience. The recommendation link above is based on genuine results. We may receive compensation for purchases made through this page. Results may vary.
+      </div>
+
     </div>
-    <h3>The Complete Puppy Blueprint</h3>
-    <p class="cta-sub">From chaos to calm in 30 days — works for any breed, any age.</p>
-    <div class="cta-price">
-      <span class="old">$97</span>
-      <span class="now">$49.99</span>
-      <span class="save">SAVE 48%</span>
-    </div>
-    <button class="cta-btn" onclick="showPage('page-sales')">See Full Details & Get Access →</button>
-    <div class="cta-trust">
-      <span>🔒 Secure</span>
-      <span>⚡ Instant download</span>
-      <span>🛡️ 30-day guarantee</span>
-    </div>
-    <ul class="cta-perks">
-      <li><span class="ck">✓</span> 2,847+ happy dog owners</li>
-      <li><span class="ck">✓</span> Works for any breed, any age</li>
-      <li><span class="ck">✓</span> Full 30-day money-back guarantee</li>
-    </ul>
-  </div>
-
-  <div class="adv-disclaimer">
-    This article reflects the author's personal experience. We may receive compensation for purchases made through this page. Individual results may vary.
-  </div>
-
-</article>
+  </article>
 </div>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!--         PAGE 2: SALES PAGE             -->
-<!-- ═══════════════════════════════════════ -->
+<!-- ======================================================= -->
+<!--              PAGE 2: SALES PAGE (WHOP STYLE)             -->
+<!-- ======================================================= -->
 <div id="page-sales" class="page">
 
-<div class="announce">🎉 <strong>LIMITED OFFER:</strong> 48% off — today only</div>
-
-<nav class="sp-nav">
-  <div class="sp-brand"><span class="sp-brand-dot"></span>Puppy Blueprint</div>
-  <div class="sp-nav-right">
-    <div class="sp-live"><span class="ldot"></span><span id="live-count">183</span> viewing</div>
-    <div class="sp-nav-stars"><span class="s">★★★★★</span>&nbsp;4.9</div>
-    <button class="btn-nav" onclick="openCheckout()">Get Access</button>
-  </div>
-</nav>
-
-<!-- Hero -->
-<div class="sp-hero">
-  <div>
-    <div class="prod-img">
-      <div class="prod-badge-float">BESTSELLER</div>
-      <div class="prod-mock">
-        <span class="prod-icon">🐕</span>
-        <div class="prod-name">THE COMPLETE PUPPY BLUEPRINT</div>
-        <div class="prod-sub">From Chaos to Calm · Digital PDF</div>
-      </div>
-    </div>
-    <div class="thumbs">
-      <div class="thumb">📘</div>
-      <div class="thumb">🦴</div>
-      <div class="thumb">🏠</div>
-      <div class="thumb">🎓</div>
-    </div>
-  </div>
-
-  <div class="purchase">
-    <div class="creator">
-      <div class="creator-av">P</div>
-      <div class="creator-info"><strong>PawScience Lab</strong> · Creator <span class="verified">✓ Verified</span></div>
-    </div>
-
-    <h1 class="prod-title">The Complete Puppy Blueprint</h1>
-    <p class="tagline">Transform your wild, disobedient puppy into a calm, well-behaved companion in 30 days — without expensive trainers, harsh corrections, or guesswork.</p>
-
-    <div class="social-proof">
-      <div class="avs">
-        <span style="background:linear-gradient(135deg,#60a5fa,#2563eb);z-index:5">AK</span>
-        <span style="background:linear-gradient(135deg,#a78bfa,#7c3aed);z-index:4">MR</span>
-        <span style="background:linear-gradient(135deg,#34d399,#059669);z-index:3">JT</span>
-        <span style="background:linear-gradient(135deg,#fb923c,#ea580c);z-index:2">TW</span>
-        <span style="background:#64748b;z-index:1;font-size:8px">+</span>
-      </div>
-      <div class="proof-txt"><strong>2,847</strong> dog owners have joined</div>
-    </div>
-
-    <div class="rating-row">
-      <span class="stars">★★★★★</span>
-      <span class="rcount">4.9 · 2,847 ratings</span>
-    </div>
-
-    <div class="price-box">
-      <div class="price-row">
-        <span class="price-now">$49.99</span>
-        <span class="price-was">$97.00</span>
-        <span class="price-save">SAVE 48%</span>
-      </div>
-      <div class="price-perks">
-        <span>✓ One-time payment</span>
-        <span>✓ Instant access</span>
-        <span>✓ Yours forever</span>
-      </div>
-    </div>
-
-    <div class="countdown">
-      <span>⏰ Sale ends in:</span>
-      <span class="timer" id="timer">02:59:47</span>
-      <span style="font-weight:400;color:#78350f">— then $97</span>
-    </div>
-
-    <button class="btn-buy" onclick="openCheckout()">Get Instant Access — $49.99 →</button>
-
-    <div class="trust-row">
-      <span>🔒 Secure</span>
-      <span>⚡ Instant</span>
-      <span>↩️ 30-day return</span>
-      <span>🛡️ Money-back</span>
-    </div>
-
-    <div class="includes">
-      <h4>What's included</h4>
-      <div class="inc"><span class="ck">✓</span><div><div class="lbl">Complete 30-Day Training System</div><div class="desc">Step-by-step from day 1 to a calm, obedient dog</div></div></div>
-      <div class="inc"><span class="ck">✓</span><div><div class="lbl">Behavior Problem Protocols</div><div class="desc">Specific fixes for biting, barking, chewing, pulling & more</div></div></div>
-      <div class="inc"><span class="ck">✓</span><div><div class="lbl">Breed-Specific Quick Start Guide</div><div class="desc">Tailored starting points for 50+ popular breeds</div></div></div>
-      <div class="inc"><span class="ck">✓</span><div><div class="lbl">Emergency Cheat Sheet</div><div class="desc">One-page reference for the 10 most common situations</div></div></div>
-      <div class="inc"><span class="ck">✓</span><div><div class="lbl">Lifetime Access & Free Updates</div><div class="desc">Get every future update at no extra cost</div></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- Trust logos -->
-<div class="trust-logos">
-  <div class="tlogo"><span class="ico">🔒</span>256-bit SSL</div>
-  <div class="tlogo"><span class="ico">💳</span>Stripe Secured</div>
-  <div class="tlogo"><span class="ico">↩️</span>30-Day Returns</div>
-  <div class="tlogo"><span class="ico">🛡️</span>Money-Back</div>
-  <div class="tlogo"><span class="ico">✓</span>GDPR Compliant</div>
-</div>
-
-<!-- Stats -->
-<div class="stats">
-  <div class="stat"><span class="num">2,847+</span><span class="lbl">Happy Owners</span></div>
-  <div class="stat"><span class="num">4.9★</span><span class="lbl">Avg. Rating</span></div>
-  <div class="stat"><span class="num">30</span><span class="lbl">Day System</span></div>
-  <div class="stat"><span class="num">&lt;2%</span><span class="lbl">Refund Rate</span></div>
-</div>
-
-<!-- About -->
-<div class="section">
-  <h2 class="sec-h">About This Program</h2>
-  <div class="sec-body">
-    <p>The Complete Puppy Blueprint is built on veterinary behavioral science — not outdated dominance theory. Every method works <em>with</em> your dog's natural instincts, creating lasting behavior change without fear, force, or frustration.</p>
-    <p>Designed for any breed, any age. Most owners see noticeable improvements within the first 3-5 days. The full 30-day program builds permanent, reliable behavior that sticks for life.</p>
-  </div>
-</div>
-
-<!-- Problems -->
-<div class="section">
-  <h2 class="sec-h">Sound Familiar?</h2>
-  <ul class="problem-list">
-    <li><span class="p-icon p-icon-red">✕</span> Your puppy ignores you completely — unless you're holding a treat</li>
-    <li><span class="p-icon p-icon-red">✕</span> Walks are a nightmare of pulling, lunging, and tangled leashes</li>
-    <li><span class="p-icon p-icon-red">✕</span> Your furniture, shoes, and sanity are being slowly destroyed</li>
-    <li><span class="p-icon p-icon-red">✕</span> You've tried YouTube videos and nothing actually sticks</li>
-    <li><span class="p-icon p-icon-red">✕</span> You're embarrassed by your dog's behavior around other people</li>
-    <li><span class="p-icon p-icon-red">✕</span> You're starting to wonder if you made a mistake getting a dog</li>
-  </ul>
-  <div style="background:var(--green-bg);border:1px solid #bbf7d0;border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:10px">
-    <span class="p-icon p-icon-green" style="width:28px;height:28px">✓</span>
-    <div style="font-size:14px"><strong>You're not a bad owner.</strong> <span style="color:var(--muted)">You just need the right system.</span></div>
-  </div>
-</div>
-
-<!-- What's Inside -->
-<div class="section">
-  <h2 class="sec-h">What's Inside</h2>
-  <div class="module-list">
-    <div class="module-item"><div class="module-num">01</div><div class="module-content"><h4>The Communication Foundation</h4><p>5 core "bridge signals" that create a shared language. Eliminates 60% of behavior problems in week one.</p></div></div>
-    <div class="module-item"><div class="module-num">02</div><div class="module-content"><h4>Environment Design</h4><p>Simple home changes that prevent problems before they start. Set your puppy up for success effortlessly.</p></div></div>
-    <div class="module-item"><div class="module-num">03</div><div class="module-content"><h4>Core Commands Mastery</h4><p>Sit, stay, come, leave it, place — taught so your dog actually understands and retains them permanently.</p></div></div>
-    <div class="module-item"><div class="module-num">04</div><div class="module-content"><h4>Behavior Problem Solving</h4><p>Step-by-step protocols for biting, barking, chewing, jumping, pulling, and house accidents.</p></div></div>
-    <div class="module-item"><div class="module-num">05</div><div class="module-content"><h4>Advanced Obedience & Bonding</h4><p>Off-leash reliability, distraction proofing, and the deep bond that makes your dog want to listen.</p></div></div>
-    <div class="module-item"><div class="module-num">06</div><div class="module-content"><h4>Real-World Proofing</h4><p>Dog parks, busy streets, guests at the door, other dogs. Bulletproof behavior everywhere.</p></div></div>
-    <div class="module-item bonus"><div class="module-num">★</div><div class="module-content"><h4>Bonus: Emergency Cheat Sheet</h4><p>One-page quick reference for the 10 most common situations. Print it and stick it on your fridge.</p></div></div>
-    <div class="module-item bonus"><div class="module-num">★</div><div class="module-content"><h4>Bonus: Breed-Specific Quick Start</h4><p>Tailored starting points for 50+ popular breeds. Because a husky isn't a chihuahua.</p></div></div>
-  </div>
-</div>
-
-<!-- Behavior Transformations -->
-<div class="section">
-  <h2 class="sec-h">Real Transformations</h2>
-  <div class="ba-grid">
-    <div class="ba-card">
-      <div class="ba-vis"><div class="ba-box bef"><small>Before</small>Pulls, lunges,<br>impossible walks</div><div class="ba-arrow">→</div><div class="ba-box aft"><small>After</small>Loose leash,<br>calm walks</div></div>
-      <div class="ba-info"><div class="ba-name">Amanda K. · Labrador · 3 weeks</div><div class="ba-detail">"I can finally walk him without dreading it. He heels perfectly."</div></div>
-    </div>
-    <div class="ba-card">
-      <div class="ba-vis"><div class="ba-box bef"><small>Before</small>Non-stop<br>chewing</div><div class="ba-arrow">→</div><div class="ba-box aft"><small>After</small>Zero<br>destruction</div></div>
-      <div class="ba-info"><div class="ba-name">Tom W. · German Shepherd · 5 days</div><div class="ba-detail">"Day 3: no more chewing. Day 5: my wife thinks I swapped the dog."</div></div>
-    </div>
-    <div class="ba-card">
-      <div class="ba-vis"><div class="ba-box bef"><small>Before</small>Ignores<br>commands</div><div class="ba-arrow">→</div><div class="ba-box aft"><small>After</small>100%<br>reliable recall</div></div>
-      <div class="ba-info"><div class="ba-name">Jennifer T. · Beagle · 4 weeks</div><div class="ba-detail">"She comes when called every time now. Even at the dog park!"</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- Reviews -->
-<div class="section">
-  <h2 class="sec-h">Reviews</h2>
-  <div class="rev-sum">
-    <div class="rev-big"><div class="num">4.9</div><div class="sts">★★★★★</div><div class="cnt">2,847 reviews</div></div>
-    <div class="rev-bars">
-      <div class="bar-row"><span class="bl">5</span><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><span class="pct">89%</span></div>
-      <div class="bar-row"><span class="bl">4</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="pct">8%</span></div>
-      <div class="bar-row"><span class="bl">3</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="pct">2%</span></div>
-      <div class="bar-row"><span class="bl">2</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="pct">1%</span></div>
-      <div class="bar-row"><span class="bl">1</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="pct">0%</span></div>
-    </div>
-  </div>
-  <div class="rev-grid">
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">AK</div><div><div class="rev-name">Amanda K.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-text">I was ready to rehome my lab. Three weeks into the Blueprint, he's a completely different dog. We're a completely different family. I can't believe I almost gave up on him.</div><div class="rev-date">June 4, 2025</div><div class="rev-helpful">👍 143 found this helpful</div></div>
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">MR</div><div><div class="rev-name">Marcus R.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-text">We tried two different trainers. Both expensive, neither lasted. The Blueprint worked faster, cost a fraction, and the results actually stuck. Our border collie is an angel now.</div><div class="rev-date">May 21, 2025</div><div class="rev-helpful">👍 98 found this helpful</div></div>
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#34d399,#059669)">JT</div><div><div class="rev-name">Jennifer T.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-text">First-time dog owner. Had zero clue what I was doing. This guide walked me through everything. My beagle went from chaos to calm in 3 weeks. Best $50 I've ever spent.</div><div class="rev-date">May 12, 2025</div><div class="rev-helpful">👍 87 found this helpful</div></div>
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#fb923c,#ea580c)">TW</div><div><div class="rev-name">Tom W.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-text">Skeptical doesn't begin to describe it. But my German Shepherd was eating our house. Day 3: no more chewing. Day 7: loose leash walking. I'm a believer for life.</div><div class="rev-date">April 29, 2025</div><div class="rev-helpful">👍 112 found this helpful</div></div>
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#f472b6,#db2777)">LH</div><div><div class="rev-name">Lisa H.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-text">My golden retriever was the most stubborn puppy alive. The communication foundation section was a game changer. He finally understands me and I understand him. It's like magic.</div><div class="rev-date">April 15, 2025</div><div class="rev-helpful">👍 76 found this helpful</div></div>
-    <div class="review"><div class="rev-hdr"><div class="rev-av" style="background:linear-gradient(135deg,#f87171,#dc2626)">RM</div><div><div class="rev-name">Rachel M.</div><div class="rev-badge">✓ Verified Purchase</div></div></div><div class="rev-stars">★★★★☆</div><div class="rev-text">Really solid guide. The breed-specific section was super helpful for our husky (they're... different). Took about 4 weeks instead of 3 but the transformation is real. Only 4 stars because I wish there was more on separation anxiety specifically.</div><div class="rev-date">March 30, 2025</div><div class="rev-helpful">👍 64 found this helpful</div></div>
-  </div>
-</div>
-
-<!-- Featured in -->
-<div class="featured">
-  <p>As Featured In</p>
-  <div class="feat-logos"><span>AKC</span><span>PET MD</span><span>ROVER</span><span>DOGSTER</span><span>WHOLE DOG JOURNAL</span></div>
-</div>
-
-<!-- Guarantee -->
-<div class="section">
-  <div class="guarantee">
-    <div class="guar-icon">🛡️</div>
-    <h3>30-Day "Calm Puppy" Guarantee</h3>
-    <p>Follow the system for 30 days. If you and your dog haven't experienced <strong>meaningful, noticeable improvement</strong>, email us for an instant, no-questions-asked full refund. We've helped over 2,800 dog owners and maintain a <strong>less than 2% refund rate</strong>.</p>
-    <span class="guar-tag">↩️ Full refund within 30 days — zero risk</span>
-  </div>
-</div>
-
-<!-- FAQ -->
-<div class="section">
-  <h2 class="sec-h">Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Will this work for my specific breed? <span class="arr">▼</span></div><div class="faq-a">Absolutely. Built on universal canine behavioral science that applies to all breeds. Plus, the Breed-Specific Quick Start Guide gives you tailored starting points for 50+ popular breeds.</div></div>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">My dog is older — not a puppy. Will this work? <span class="arr">▼</span></div><div class="faq-a">Yes. While the name says "Puppy," the communication system works for dogs of any age. Older dogs may take 4-6 weeks vs. 3-4, but the principles are identical. You can absolutely teach an old dog new tricks.</div></div>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from YouTube videos? <span class="arr">▼</span></div><div class="faq-a">YouTube gives disconnected tips without a system. The Blueprint is a structured 30-day path where each day builds on the last. It's the difference between a pile of ingredients and an actual recipe.</div></div>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if it doesn't work? <span class="arr">▼</span></div><div class="faq-a">Full 30-day money-back guarantee. If you don't see meaningful improvement, email us for a complete refund. No questions asked. Zero risk.</div></div>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How quickly will I see results? <span class="arr">▼</span></div><div class="faq-a">Most owners see noticeable changes within 3-5 days. Significant transformation typically happens within 2-3 weeks. Full 30-day program builds lasting, permanent behavior change.</div></div>
-  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is this a physical or digital product? <span class="arr">▼</span></div><div class="faq-a">Digital PDF — download instantly after purchase. Read on any device or print at home. No waiting, no shipping.</div></div>
-</div>
-
-<!-- Final CTA -->
-<div class="final-cta">
-  <h2>Your dog isn't the problem.<br>You just need the right system.</h2>
-  <p>Join 2,847+ dog owners who transformed their relationship with their dog.</p>
-  <button class="btn-buy" style="max-width:400px;margin:0 auto;display:block" onclick="openCheckout()">Get Instant Access — $49.99 →</button>
-  <div class="trust-row" style="margin-top:12px"><span>🔒 Secure</span><span>⚡ Instant</span><span>↩️ 30-day return</span><span>🛡️ Money-back</span></div>
-</div>
-
-<footer class="footer">
-  <p>© 2025 The Complete Puppy Blueprint · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a> · <a href="#">Refund Policy</a></p>
-  <p style="margin-top:5px">Results may vary. Not veterinary advice.</p>
-</footer>
-
-<!-- Toast -->
-<div class="toast" id="toast">
-  <span class="tdot"></span>
-  <span id="toast-txt">Amanda from Ohio just purchased · 2 min ago</span>
-</div>
-
-</div>
-
-
-<!-- ═══════════════════════════════════════ -->
-<!--         PAGE 3: THANK YOU              -->
-<!-- ═══════════════════════════════════════ -->
-<div id="page-thankyou" class="page">
-<div class="ty-page">
-  <div class="ty-content">
-    <div class="ty-icon">🎉</div>
-    <h1>You're All Set!</h1>
-    <p class="ty-sub">Thank you for your purchase. Your transformation starts now.</p>
-
-    <div class="dl-list">
-      <div class="dl-item">
-        <span class="dl-icon">📘</span>
-        <div class="dl-info"><h4>The Complete Puppy Blueprint</h4><p>PDF · 86 pages · 12.4 MB</p></div>
-        <button class="dl-btn">Download</button>
-      </div>
-      <div class="dl-item" id="dl-upsell" style="display:none">
-        <span class="dl-icon">🃏</span>
-        <div class="dl-info"><h4>50 Advanced Tricks & Games</h4><p>PDF · 54 pages · 8.2 MB</p></div>
-        <button class="dl-btn">Download</button>
-      </div>
-    </div>
-
-    <div class="next-steps">
-      <h3>📋 What to Do Next</h3>
-      <ol>
-        <li>Download your PDF to your device</li>
-        <li>Read the Quick Start section (pages 1-5)</li>
-        <li>Begin Module 1 tomorrow morning</li>
-        <li>See noticeable changes within 3-5 days</li>
-      </ol>
-    </div>
-
-    <p style="font-size:13px;color:#94a3b8">Need help? <strong style="color:#666">support@puppyblueprint.com</strong></p>
-  </div>
-</div>
-</div>
-
-
-<!-- ═══════════════════════════════════════ -->
-<!--         CHECKOUT MODAL                 -->
-<!-- ═══════════════════════════════════════ -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeCheckout()">✕</button>
-
-    <!-- Step 1: Checkout -->
-    <div id="step-checkout">
-      <div class="mhead">
-        <div class="msecure">🔒 Secure Checkout</div>
-        <h2>Complete Your Order</h2>
-        <p>One-time payment · Instant access · 30-day money-back</p>
-      </div>
-      <div class="mbody">
-        <div class="osum">
-          <div class="orow"><span class="name">🐕 The Complete Puppy Blueprint</span><span class="price">$49.99</span></div>
-          <hr class="odiv">
-          <div class="ototl"><span>Total</span><span>$49.99</span></div>
+  <!-- Sticky header -->
+  <header class="sp-header">
+    <div class="container-wide">
+      <div class="sp-header-inner">
+        <div class="sp-header-brand">
+          <div class="sp-header-icon">🐕</div>
+          <span class="sp-header-name">Puppy Blueprint</span>
         </div>
-        <form id="checkout-form" onsubmit="processCheckout(event)">
-          <div class="fg"><label class="fl">Email address</label><input type="email" class="fi" placeholder="you@example.com" required></div>
-          <div class="fg"><label class="fl">Full name</label><input type="text" class="fi" placeholder="John Smith" required></div>
-          <div class="fg"><label class="fl">Card number</label><input type="text" class="fi" placeholder="1234 5678 9012 3456" required maxlength="19" oninput="fmtCard(this)"></div>
-          <div class="frow">
-            <div class="fg"><label class="fl">Expiry</label><input type="text" class="fi" placeholder="MM / YY" required maxlength="7" oninput="fmtExp(this)"></div>
-            <div class="fg"><label class="fl">CVC</label><input type="text" class="fi" placeholder="123" required maxlength="4"></div>
+        <button class="sp-header-btn" onclick="showPage('page-checkout')">Get Access</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="sp-hero">
+    <div class="container-wide">
+      <div class="sp-hero-grid">
+        <div class="sp-hero-content">
+          <div class="sp-rating">
+            <span class="sp-stars">★★★★★</span>
+            <span class="sp-rating-text">4.9/5 from 2,847 dog owners</span>
           </div>
-          <button type="submit" class="cbtn" id="cbtn"><span id="cbtn-txt">Pay $49.99 →</span></button>
-        </form>
-        <div class="mrefund">↩️ Full refund within 30 days — zero risk</div>
-        <div class="mtr"><span>🔒 256-bit SSL</span><span>🛡️ Money-back</span><span>💳 Stripe</span></div>
-      </div>
-    </div>
-
-    <!-- Step 2: Upsell -->
-    <div id="step-upsell" style="display:none">
-      <div class="mhead" style="padding-bottom:8px">
-        <div class="up-wrap">
-          <span class="up-badge">⚡ One-Time Offer</span>
-          <h2>Level Up Your Training!</h2>
-          <p class="up-sub">Owners who add this see results <strong>2× faster</strong>. Only available right now.</p>
+          <h1>The Complete Puppy Blueprint</h1>
+          <p class="sp-hero-desc">Transform your wild, disobedient puppy into a calm, well-behaved companion in 30 days — without expensive trainers, harsh corrections, or overwhelming advice.</p>
+          <div class="sp-price-row">
+            <span class="sp-price">$49.99</span>
+            <span class="sp-price-old">$97</span>
+            <span class="sp-price-save">Save 48%</span>
+          </div>
+          <button class="btn btn-primary btn-lg" onclick="showPage('page-checkout')">Get Instant Access →</button>
+          <div class="sp-trust-row">
+            <span class="sp-trust-item"><span class="check">✓</span> Instant PDF Download</span>
+            <span class="sp-trust-item"><span class="check">✓</span> Works for Any Breed</span>
+            <span class="sp-trust-item"><span class="check">✓</span> 30-Day Money-Back Guarantee</span>
+          </div>
         </div>
-      </div>
-      <div class="mbody" style="padding-top:0">
-        <div class="up-product">
-          <div class="up-top">
-            <div class="up-icon">🃏</div>
-            <div class="up-info">
-              <h3>50 Advanced Tricks & Games Pack</h3>
-              <div class="up-pricing"><s>$47.00</s>&nbsp;&nbsp;<strong>$27</strong> <span style="color:#16a34a;font-size:11px;font-weight:700">SAVE 43%</span></div>
+        <div class="sp-hero-visual">
+          <div class="product-mockup">
+            <div class="book-visual">
+              <div class="book-cover">
+                <div class="book-label">Complete Guide</div>
+                <div class="book-emoji">🐕</div>
+                <h3>The Complete Puppy Blueprint</h3>
+                <p>From Chaos to Calm<br>in 30 Days</p>
+              </div>
+              <div class="book-shadow"></div>
             </div>
           </div>
-          <ul class="up-features">
-            <li>50 illustrated trick cards (beginner → show-stopper)</li>
-            <li>15 brain games that tire your dog out mentally</li>
-            <li>Difficulty ratings to progress at your dog's pace</li>
-            <li>Printable card format — use anywhere</li>
-            <li>Works with any breed, any age</li>
-          </ul>
         </div>
-        <button class="btn-up-yes" onclick="acceptUpsell()">Yes! Add This for Just $27 →</button>
-        <button class="btn-up-no" onclick="declineUpsell()">No thanks, I'll skip this offer</button>
       </div>
     </div>
+  </section>
 
+  <!-- Stats bar -->
+  <section class="sp-stats">
+    <div class="container-wide">
+      <div class="sp-stats-grid">
+        <div class="sp-stat">
+          <div class="sp-stat-number">2,847+</div>
+          <div class="sp-stat-label">Happy Dog Owners</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-number">30</div>
+          <div class="sp-stat-label">Day Transformation</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-number">4.9/5</div>
+          <div class="sp-stat-label">Average Rating</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-number">100%</div>
+          <div class="sp-stat-label">Money-Back Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Does this sound like you? -->
+  <section class="sp-section sp-section-alt">
+    <div class="container">
+      <h2 class="sp-section-title">Does This Sound Like You?</h2>
+      <p class="sp-section-subtitle">If you're nodding at any of these, you're in the right place.</p>
+      <ul class="problem-list">
+        <li><span class="problem-icon problem-icon-red">✕</span> Your puppy ignores you completely — unless you're holding a treat</li>
+        <li><span class="problem-icon problem-icon-red">✕</span> Walks are a nightmare of pulling, lunging, and tangled leashes</li>
+        <li><span class="problem-icon problem-icon-red">✕</span> Your furniture, shoes, and sanity are being slowly destroyed</li>
+        <li><span class="problem-icon problem-icon-red">✕</span> You've tried YouTube videos and nothing actually sticks</li>
+        <li><span class="problem-icon problem-icon-red">✕</span> You're embarrassed by your dog's behavior around other people</li>
+        <li><span class="problem-icon problem-icon-red">✕</span> You're starting to wonder if you made a mistake getting a dog</li>
+      </ul>
+
+      <div class="solution-header">
+        <span class="badge badge-green">✓ There's a better way</span>
+        <h3 style="margin-top:12px">You're not a bad owner. You just need the right system.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's inside -->
+  <section class="sp-section">
+    <div class="container">
+      <h2 class="sp-section-title">What's Inside</h2>
+      <p class="sp-section-subtitle">A complete 30-day system — every day mapped out, step by step.</p>
+      <div class="module-list">
+        <div class="module-item">
+          <div class="module-number">01</div>
+          <div class="module-content">
+            <h4>The Communication Foundation</h4>
+            <p>Learn the 5 core "bridge signals" that create a shared language with your puppy. This alone eliminates 60% of behavior problems within the first week.</p>
+          </div>
+        </div>
+        <div class="module-item">
+          <div class="module-number">02</div>
+          <div class="module-content">
+            <h4>Environment Design</h4>
+            <p>Simple changes to your home that prevent problems before they start. Set your puppy up for success without constant supervision.</p>
+          </div>
+        </div>
+        <div class="module-item">
+          <div class="module-number">03</div>
+          <div class="module-content">
+            <h4>Core Commands Mastery</h4>
+            <p>Sit, stay, come, leave it, place — taught in a way your dog actually understands and retains. No more commands that only work sometimes.</p>
+          </div>
+        </div>
+        <div class="module-item">
+          <div class="module-number">04</div>
+          <div class="module-content">
+            <h4>Behavior Problem Solving</h4>
+            <p>Step-by-step fixes for biting, barking, chewing, jumping, pulling, and house accidents. Each problem gets its own proven protocol.</p>
+          </div>
+        </div>
+        <div class="module-item">
+          <div class="module-number">05</div>
+          <div class="module-content">
+            <h4>Advanced Obedience & Bonding</h4>
+            <p>Off-leash reliability, distraction proofing, and building the deep bond that makes your dog want to listen — every single time.</p>
+          </div>
+        </div>
+        <div class="module-item">
+          <div class="module-number">06</div>
+          <div class="module-content">
+            <h4>Real-World Proofing</h4>
+            <p>Take everything from your living room to the real world: dog parks, busy streets, guests at the door, other dogs. Bulletproof behavior.</p>
+          </div>
+        </div>
+        <div class="module-item bonus">
+          <div class="module-number">★</div>
+          <div class="module-content">
+            <h4>Bonus: Puppy Emergency Cheat Sheet</h4>
+            <p>One-page quick reference for the 10 most common situations. Print it and put it on your fridge.</p>
+          </div>
+        </div>
+        <div class="module-item bonus">
+          <div class="module-number">★</div>
+          <div class="module-content">
+            <h4>Bonus: Breed-Specific Quick Start Guide</h4>
+            <p>Tailored starting points for 50+ popular breeds. Because a husky isn't a chihuahua.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="sp-section sp-section-alt">
+    <div class="container">
+      <h2 class="sp-section-title">Real Results From Real Owners</h2>
+      <p class="sp-section-subtitle">Join thousands of dog owners who transformed their relationship with their dog.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I was ready to rehome my lab. I'm not proud of that, but I was at my breaking point. Three weeks into the Blueprint, he's a completely different dog. We're a completely different family."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#c7d2fe;color:#4338ca">AK</div>
+            <div>
+              <div class="testimonial-name">Amanda K.</div>
+              <div class="testimonial-detail">Labrador owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"We tried two different trainers. Both expensive, neither lasted. The Puppy Blueprint worked faster, cost a fraction of the price, and the results actually stuck. Our border collie is an angel now."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#fecaca;color:#dc2626">MR</div>
+            <div>
+              <div class="testimonial-name">Marcus & Diana R.</div>
+              <div class="testimonial-detail">Border Collie owners</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"First-time dog owner here. Had absolutely no clue what I was doing. This guide held my hand through everything. My beagle went from pure chaos to calm in about 3 weeks. Best $50 I've ever spent."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#bbf7d0;color:#15803d">JT</div>
+            <div>
+              <div class="testimonial-name">Jennifer T.</div>
+              <div class="testimonial-detail">Beagle owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Skeptical doesn't begin to describe how I felt. But my German Shepherd was eating our house. Day 3: no more chewing. Day 7: loose leash walking. I'm a believer."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#fde68a;color:#92400e">TW</div>
+            <div>
+              <div class="testimonial-name">Tom W.</div>
+              <div class="testimonial-detail">German Shepherd owner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing card -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3>The Complete Puppy Blueprint</h3>
+          <p>Everything you need. Nothing you don't.</p>
+        </div>
+        <div class="pricing-card-body">
+          <div class="pricing-card-price">
+            <span class="price-old">$97</span>
+            <span class="price-main">$49.99</span>
+            <span class="price-note">One-time payment · Instant PDF download · No subscription</span>
+          </div>
+          <ul class="pricing-features">
+            <li><span class="pf-check">✓</span> 6 Core Training Modules</li>
+            <li><span class="pf-check">✓</span> Step-by-Step Daily Action Plans</li>
+            <li><span class="pf-check">✓</span> Behavior Problem Protocols</li>
+            <li><span class="pf-check">✓</span> Breed-Specific Quick Start Guide</li>
+            <li><span class="pf-check">✓</span> Emergency Cheat Sheet</li>
+            <li><span class="pf-check">✓</span> Lifetime Access & Free Updates</li>
+            <li><span class="pf-check">✓</span> 30-Day Money-Back Guarantee</li>
+          </ul>
+        </div>
+        <div class="pricing-card-footer">
+          <button class="btn btn-primary btn-lg" onclick="showPage('page-checkout')">Get Instant Access →</button>
+          <p class="pricing-guarantee">🔒 Secure checkout · <span>2,847+ happy customers</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sp-section sp-section-alt">
+    <div class="container">
+      <h2 class="sp-section-title">Frequently Asked Questions</h2>
+      <p class="sp-section-subtitle">Everything you need to know before getting started.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">Will this work for my specific breed? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. The Blueprint is built on universal canine behavioral science that applies to all breeds — from Chihuahuas to Great Danes. Plus, the included Breed-Specific Quick Start Guide gives you tailored starting points for 50+ popular breeds.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">My dog is older, not a puppy. Will this work? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolutely. While the name says "Puppy," the communication system works for dogs of any age. Older dogs may take slightly longer (4-6 weeks vs. 3-4), but the principles are identical. You can teach an old dog new tricks — when you use the right approach.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How is this different from YouTube videos? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">YouTube gives you random, disconnected tips without a coherent system. The Blueprint gives you a structured 30-day path where each day builds on the last. It's the difference between a pile of ingredients and an actual recipe with instructions.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if it doesn't work for my dog? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Then you pay nothing. The Blueprint comes with a full 30-day money-back guarantee. If you follow the system and don't see meaningful improvement, email us for a complete refund. No questions asked, no hoops to jump through.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How quickly will I see results? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Most owners report noticeable changes within the first 3-5 days. Significant transformation typically happens within 2-3 weeks. The full 30-day program builds lasting, permanent behavior change that sticks for life.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is this a physical or digital product? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">It's a digital PDF that you download instantly after purchase. You can read it on any device — phone, tablet, or computer — or print it at home if you prefer a physical copy.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="sp-section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🛡️</div>
+        <h3>30-Day "Calm Puppy" Guarantee</h3>
+        <p>Follow the system for 30 days. If you and your puppy haven't experienced meaningful, noticeable improvement, email us and we'll refund every cent. No questions. No hassle. No hard feelings. The risk is entirely on us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Your puppy isn't the problem.<br>You just need the right system.</h2>
+      <p>Join 2,847+ dog owners who transformed their relationship with their dog.</p>
+      <button class="btn btn-primary btn-lg" style="max-width:400px;margin:0 auto" onclick="showPage('page-checkout')">Get The Blueprint — $49.99 →</button>
+      <p class="social-proof">🔒 Secure payment · Instant download · 30-day guarantee</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="sp-footer">
+    © 2025 The Complete Puppy Blueprint. All rights reserved.<br>
+    <a href="#" style="color:#9ca3af">Privacy Policy</a> · <a href="#" style="color:#9ca3af">Terms of Service</a> · <a href="#" style="color:#9ca3af">Contact</a>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-price">
+      <span class="old">$97</span>
+      <span class="price">$49.99</span>
+    </div>
+    <button class="btn btn-primary" onclick="showPage('page-checkout')">Get Access →</button>
+  </div>
+
+</div>
+
+
+<!-- ======================================================= -->
+<!--              PAGE 3: CHECKOUT                            -->
+<!-- ======================================================= -->
+<div id="page-checkout" class="page">
+  <div class="checkout-page">
+    <div class="container-wide">
+
+      <div class="checkout-header">
+        <div style="font-size:24px;margin-bottom:8px">🐕</div>
+        <h1>Complete Your Order</h1>
+        <p>You're one step away from a calmer, happier dog.</p>
+      </div>
+
+      <div class="checkout-grid">
+
+        <!-- LEFT: Form -->
+        <div class="checkout-form-section">
+
+          <div class="checkout-section-label">
+            <span class="step-num">1</span> Contact Information
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" placeholder="John Smith">
+          </div>
+
+          <div style="height:24px"></div>
+
+          <div class="checkout-section-label">
+            <span class="step-num">2</span> Payment Details
+          </div>
+          <div class="form-group">
+            <label class="form-label">Card Number</label>
+            <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Expiry Date</label>
+              <input type="text" class="form-input" placeholder="MM / YY">
+            </div>
+            <div class="form-group">
+              <label class="form-label">CVC</label>
+              <input type="text" class="form-input" placeholder="123">
+            </div>
+          </div>
+
+          <!-- ORDER BUMP -->
+          <div class="order-bump" id="orderBump" onclick="toggleBump()">
+            <div class="order-bump-header">
+              <div class="order-bump-checkbox" id="bumpCheck"></div>
+              <div class="order-bump-label">🎁 Add This To Your Order</div>
+              <div class="order-bump-price"><span class="old-price">$27</span> $14.99</div>
+            </div>
+            <p class="order-bump-desc"><strong>50 Advanced Tricks & Games Pack</strong> — Master impressive tricks and brain games that tire your dog out mentally. 50 illustrated printable trick cards. Usually $27, just $14.99 when added now.</p>
+          </div>
+
+          <div class="checkout-submit">
+            <button class="btn btn-primary btn-lg" onclick="showPage('page-upsell')">Complete My Order →</button>
+          </div>
+
+          <div class="checkout-trust">
+            <span class="checkout-trust-item">🔒 SSL Encrypted</span>
+            <span class="checkout-trust-item">🛡️ 30-Day Guarantee</span>
+            <span class="checkout-trust-item">⚡ Instant Access</span>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Summary -->
+        <div class="checkout-summary-section">
+          <div class="order-summary-card card-elevated">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Order Summary</h3>
+            <div class="order-item">
+              <span class="order-item-name">The Complete Puppy Blueprint</span>
+              <span class="order-item-price">$49.99</span>
+            </div>
+            <div class="order-item" id="bumpLine" style="display:none">
+              <span class="order-item-name">50 Tricks & Games Pack</span>
+              <span class="order-item-price">$14.99</span>
+            </div>
+            <div class="order-total">
+              <span>Total</span>
+              <span id="orderTotal">$49.99</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;padding:16px;background:#f9fafb;border-radius:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <span style="font-size:18px">🛡️</span>
+              <span style="font-size:14px;font-weight:600">30-Day Guarantee</span>
+            </div>
+            <p style="font-size:13px;color:#6b7280;line-height:1.6">Not happy? Get a full refund within 30 days. No questions asked.</p>
+          </div>
+
+          <div style="margin-top:16px;text-align:center">
+            <span style="font-size:12px;color:#9ca3af;cursor:pointer" onclick="showPage('page-sales')">← Back to details</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
 
-<!-- ═══════════════════════════════════════ -->
-<!--              JAVASCRIPT                -->
-<!-- ═══════════════════════════════════════ -->
+<!-- ======================================================= -->
+<!--              PAGE 4: UPSELL                              -->
+<!-- ======================================================= -->
+<div id="page-upsell" class="page">
+  <div class="upsell-page">
+    <div class="container-narrow">
+
+      <!-- Confirmed banner -->
+      <div class="upsell-confirmed">
+        <div class="check-icon">✅</div>
+        <h3>Your Order is Confirmed!</h3>
+        <p>The Complete Puppy Blueprint is ready. But first — a special one-time offer just for you.</p>
+      </div>
+
+      <!-- Upsell offer -->
+      <div class="upsell-offer">
+        <span class="badge badge-amber">⏳ One-Time Offer — This Page Only</span>
+        <h2 style="margin-top:16px">Take Your Training<br>to the Next Level</h2>
+        <p class="upsell-sub">Now that your puppy will be well-behaved, it's time to have some serious fun together.</p>
+
+        <div class="upsell-product-card">
+          <div class="upsell-product-header">
+            <span class="badge">SPECIAL ADD-ON</span>
+            <h3>50 Advanced Tricks<br>& Games Pack</h3>
+          </div>
+          <div class="upsell-product-body">
+            <ul class="upsell-features">
+              <li><span class="uf-check">✓</span> 50 illustrated trick cards (beginner → show-stopper)</li>
+              <li><span class="uf-check">✓</span> 15 brain games that tire your dog out mentally</li>
+              <li><span class="uf-check">✓</span> Difficulty ratings to progress at your dog's pace</li>
+              <li><span class="uf-check">✓</span> Printable card format — use anywhere</li>
+              <li><span class="uf-check">✓</span> Works with any breed, any age</li>
+            </ul>
+            <div class="upsell-price-box">
+              <span class="old">$27</span>
+              <span class="new">$14.99</span>
+              <span class="save-tag">Save 44%</span>
+            </div>
+            <button class="btn btn-success btn-lg" onclick="showPage('page-thankyou')">Add to My Order — $14.99 →</button>
+          </div>
+        </div>
+
+        <div class="upsell-skip">
+          <a onclick="showPage('page-thankyou')">No thanks, take me to my download →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ======================================================= -->
+<!--              PAGE 5: THANK YOU                           -->
+<!-- ======================================================= -->
+<div id="page-thankyou" class="page">
+  <div class="thankyou-page">
+    <div class="thankyou-content">
+
+      <div class="thankyou-icon">🎉</div>
+      <h1>You're All Set!</h1>
+      <p class="subtitle">Thank you for your purchase. Your transformation starts now.</p>
+
+      <div class="download-list">
+        <div class="download-item">
+          <span class="download-icon">📘</span>
+          <div class="download-info">
+            <h4>The Complete Puppy Blueprint</h4>
+            <p>PDF · 86 pages · 12.4 MB</p>
+          </div>
+          <button class="download-btn">Download</button>
+        </div>
+        <div class="download-item">
+          <span class="download-icon">🃏</span>
+          <div class="download-info">
+            <h4>50 Tricks & Games Pack</h4>
+            <p>PDF · 54 pages · 8.2 MB</p>
+          </div>
+          <button class="download-btn">Download</button>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <h3>📋 What to Do Next</h3>
+        <ol>
+          <li>Download your PDF files to your device</li>
+          <li>Read the Quick Start section (pages 1-5)</li>
+          <li>Begin Module 1 tomorrow morning</li>
+          <li>See noticeable changes within 3-5 days</li>
+        </ol>
+      </div>
+
+      <p style="font-size:14px;color:#6b7280">Need help? Reach us at <strong>support@puppyblueprint.com</strong></p>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ======================================================= -->
+<!--              JAVASCRIPT                                  -->
+<!-- ======================================================= -->
 <script>
-/* ── Page navigation ── */
-function showPage(id){
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'instant'});
+// Page navigation
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-/* ── Countdown timer ── */
-(function(){
-  var total=10787;
-  var el=document.getElementById('timer');
-  function tick(){
-    if(!el)return;
-    if(total<=0){el.textContent='00:00:00';return;}
-    el.textContent=
-      String(Math.floor(total/3600)).padStart(2,'0')+':'+
-      String(Math.floor((total%3600)/60)).padStart(2,'0')+':'+
-      String(total%60).padStart(2,'0');
-    total--;
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    // Close others
+    document.querySelectorAll('.faq-item').forEach(function(fi) {
+      if (fi !== item) fi.classList.remove('open');
+    });
+    item.classList.toggle('open');
+  });
+});
+
+// Order bump toggle
+var bumpSelected = false;
+function toggleBump() {
+  bumpSelected = !bumpSelected;
+  var bump = document.getElementById('orderBump');
+  var bumpLine = document.getElementById('bumpLine');
+  var total = document.getElementById('orderTotal');
+  if (bumpSelected) {
+    bump.classList.add('selected');
+    bumpLine.style.display = 'flex';
+    total.textContent = '$64.98';
+  } else {
+    bump.classList.remove('selected');
+    bumpLine.style.display = 'none';
+    total.textContent = '$49.99';
   }
-  tick();
-  setInterval(tick,1000);
-})();
-
-/* ── Live viewers ── */
-setInterval(function(){
-  var el=document.getElementById('live-count');
-  if(el){var v=parseInt(el.textContent);el.textContent=Math.max(140,Math.min(260,v+Math.floor(Math.random()*7)-3));}
-},4000);
-
-/* ── FAQ accordion ── */
-function toggleFaq(el){
-  var a=el.nextElementSibling;
-  var isOpen=a.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});
-  document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open')});
-  if(!isOpen){a.classList.add('open');el.classList.add('open');}
 }
 
-/* ── Modal ── */
-function openCheckout(){
-  document.getElementById('step-checkout').style.display='block';
-  document.getElementById('step-upsell').style.display='none';
-  var o=document.getElementById('modal-overlay');
-  o.style.display='flex';
-  requestAnimationFrame(function(){o.classList.add('show')});
-  document.body.style.overflow='hidden';
+// Sticky CTA on sales page (mobile)
+var stickyCta = document.getElementById('stickyCta');
+function handleScroll() {
+  var salesPage = document.getElementById('page-sales');
+  if (!salesPage.classList.contains('active')) {
+    if (stickyCta) stickyCta.classList.remove('visible');
+    return;
+  }
+  if (window.innerWidth < 768) {
+    if (window.scrollY > 600) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  } else {
+    stickyCta.classList.remove('visible');
+  }
 }
-function closeCheckout(){
-  var o=document.getElementById('modal-overlay');
-  o.classList.remove('show');
-  setTimeout(function(){o.style.display='none';document.body.style.overflow=''},300);
-}
-function closeModal(e){if(e.target===e.currentTarget)closeCheckout();}
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('resize', handleScroll);
 
-/* ── Card formatting ── */
-function fmtCard(el){var v=el.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();el.value=v.substring(0,19);}
-function fmtExp(el){var v=el.value.replace(/\D/g,'');if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2,4);el.value=v;}
-
-/* ── Process checkout → upsell ── */
-function processCheckout(e){
-  e.preventDefault();
-  var btn=document.getElementById('cbtn');
-  var txt=document.getElementById('cbtn-txt');
-  btn.disabled=true;
-  txt.innerHTML='<span class="spinner"></span>&nbsp;Processing...';
-  setTimeout(function(){
-    document.getElementById('step-checkout').style.display='none';
-    document.getElementById('step-upsell').style.display='block';
-    var m=document.getElementById('modal');
-    m.style.animation='none';m.offsetHeight;m.style.animation='mIn .35s ease';
-    btn.disabled=false;
-    txt.textContent='Pay $49.99 →';
-  },2000);
-}
-
-/* ── Upsell accept/decline ── */
-function acceptUpsell(){
-  document.getElementById('dl-upsell').style.display='flex';
-  closeCheckout();
-  setTimeout(function(){showPage('page-thankyou')},400);
-}
-function declineUpsell(){
-  closeCheckout();
-  setTimeout(function(){showPage('page-thankyou')},400);
-}
-
-/* ── Social proof toasts ── */
-var toastNames=['Amanda from Ohio','Marcus from California','Jennifer from Texas','Tom from Florida','Lisa from New York','Rachel from Illinois','Kevin from Georgia','Sarah from Virginia'];
-var ti=0;
-function showToast(){
-  var sp=document.getElementById('page-sales');
-  if(!sp||!sp.classList.contains('active')){setTimeout(showToast,5000);return;}
-  var el=document.getElementById('toast');
-  var txt=document.getElementById('toast-txt');
-  txt.textContent=toastNames[ti%toastNames.length]+' just purchased · '+String(Math.floor(Math.random()*15)+1)+' min ago';
-  el.classList.add('show');ti++;
-  setTimeout(function(){el.classList.remove('show')},4500);
-  setTimeout(showToast,13000+Math.random()*8000);
-}
-setTimeout(showToast,4000);
+// Hide sticky when not on sales page
+var observer = new MutationObserver(function() {
+  handleScroll();
+});
+document.querySelectorAll('.page').forEach(function(p) {
+  observer.observe(p, { attributes: true, attributeFilter: ['class'] });
+});
 </script>
 
 </body>
